@@ -159,3 +159,7 @@ entire_group.add(groupArray);
 _.each(groupArray, function(x){
   x.set();
 });
+
+entire_group.fetch().done( function (data) {
+  groupArray = data;
+});

@@ -7,20 +7,21 @@ $('#update').on('submit', function(e){
   e.preventDefault();
 
   var secret = $('#secretID').val();
-  var newHigh = $('#highUpdate').val();
-  var newLow = $('#lowUpdate').val();
+  var newHigh = $('#highUpdate').val().toString();
+  var newLow = $('#lowUpdate').val().toString();
 
   // update groupArray from server
-  entire_group.fetch();
+  // entire_group.fetch();
 
   // Find instance with ID
   var findID = entire_group.findWhere({sID : secret});
+  console.log(findID);
 
-  // Destroy existing record
+  var uniqueID = entire_group.findWhere( {_id : findID.attributes._id} );
+  console.log(uniqueID);
 
   // update High property
-  findID.set('high', newHigh).set('low', newLow);
-
+  uniqueID.set('high', newHigh).set('low', newLow);
   // Save groupArray to server
   // findID.save();
 
