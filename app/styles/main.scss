@@ -9,18 +9,43 @@ body {
   color: #333;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 600px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+img {
+  max-width: 100%;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  @include outer-container;
+}
+
+header {
+  @include span-columns(12);
+  margin-bottom: 40px;
+}
+
+.featured {
+  @include span-columns(12);
+  margin-bottom: 40px;
+
+  img {
+    @include span-columns(3 of 12);
+  }
+
+  .feelings {
+    @include span-columns(9 of 12);
+  }
+}
+
+.classmates {
+  @include span-columns(12);
+
+  li {
+    @include span-columns(3 of 12);
+    @include omega(4n);
+    margin-bottom: 20px;
   }
 }
