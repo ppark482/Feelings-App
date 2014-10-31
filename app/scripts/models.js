@@ -10,6 +10,8 @@ var Classmate = Backbone.Model.extend({
     avatar: ''
   },
 
+  idAttribute: '_id',
+
   initialize: function() {
     console.log("Classmate initialized");
   }

@@ -3,7 +3,7 @@
 var Group = Backbone.Collection.extend({
 
   model: Classmate,
-  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings'// server url,
+  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings2'// server url,
 
 });
 
@@ -150,15 +150,16 @@ var wendy = new Classmate ({
   avatar: ''
 });
 
-var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
+var groupArray = [paul, richard];
 
 var entire_group = new Group();
 
-entire_group.add(groupArray);
-
-_.each(groupArray, function(x){
-  x.set();
+_.each(groupArray, function(name){
+  entire_group.add(name);
+  name.set();
 });
+
+console.log(entire_group);
 
 entire_group.fetch().done( function (data) {
   groupArray = data;
