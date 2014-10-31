@@ -157,5 +157,5 @@ var entire_group = new Group();
 entire_group.add(groupArray);
 
 _.each(groupArray, function(x){
-  x.save();
+  x.set();
 });
