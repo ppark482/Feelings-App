@@ -44,8 +44,8 @@ header {
   @include span-columns(12);
 
   li {
-    @include span-columns(3 of 12);
-    @include omega(4n);
+    @include span-columns(1 of 12);
+    @include omega(12n);
     margin-bottom: 20px;
   }
 }
