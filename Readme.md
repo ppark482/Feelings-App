@@ -1,3 +1,3 @@
-## Yo, I'm a Readme
+## The Iron Yard Weekly Feelings App
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+#This application is designed to replace the time-sink that is the Friday Feelings Round-Up.
