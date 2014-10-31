@@ -153,4 +153,9 @@ var wendy = new Classmate ({
 var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
 
 var entire_group = new Group();
+
 entire_group.add(groupArray);
+
+_.each(groupArray, function(x){
+  x.save();
+});
