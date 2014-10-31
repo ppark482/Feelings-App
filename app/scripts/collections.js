@@ -1,3 +1,5 @@
+// var andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy;
+
 var Group = Backbone.Collection.extend({
 
   model: Classmate,
@@ -147,3 +149,8 @@ var wendy = new Classmate ({
   high: '',
   avatar: ''
 });
+
+var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
+
+var entire_group = new Group();
+entire_group.add(groupArray);
