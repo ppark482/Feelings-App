@@ -152,15 +152,19 @@ var wendy = new Classmate ({
 
 var groupArray = [paul, richard];
 
-var entire_group = new Group();
+var entire_group = new Group(); // new collection instance
 
-_.each(groupArray, function(name){
-  entire_group.add(name);
-  name.set();
-});
+entire_group.fetch(); // takes all objects on server and places them in the collection entire_group
 
-console.log(entire_group);
+var collectionPull = entire_group.models;
 
-entire_group.fetch().done( function (data) {
-  groupArray = data;
-});
+// _.each(groupArray, function(name){
+//   entire_group.add(name);
+//   name.set();
+// });
+//
+// console.log(entire_group);
+//
+// entire_group.fetch().done( function (data) {
+//   groupArray = data;
+// });
