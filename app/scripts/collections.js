@@ -150,13 +150,19 @@ var wendy = new Classmate ({
   avatar: ''
 });
 
+var placeholder1 = new Classmate ({});
+var placeholder2 = new Classmate ({});
+var placeholder3 = new Classmate ({});
+
 var groupArray = [paul, richard];
 
-var entire_group = new Group(); // new collection instance
+var entire_group = new Group( [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3] ); // new collection instance with all classmates
 
-entire_group.fetch(); // takes all objects on server and places them in the collection entire_group
+Backbone.sync("create", entire_group);
 
-var collectionPull = entire_group.models;
+// entire_group.fetch(); // takes all objects on server and places them in the collection entire_group
+
+
 
 // _.each(groupArray, function(name){
 //   entire_group.add(name);

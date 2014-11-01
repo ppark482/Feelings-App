@@ -7,7 +7,7 @@ var findID;
 
 
 
-$('#update').on('submit', function(e){
+$('#update').on('click', function(e){
 
   e.preventDefault();
 
