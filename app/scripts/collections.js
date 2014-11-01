@@ -154,11 +154,11 @@ var placeholder1 = new Classmate ({});
 var placeholder2 = new Classmate ({});
 var placeholder3 = new Classmate ({});
 
-var groupArray = [paul, richard];
+var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3];
 
 var entire_group = new Group( [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3] ); // new collection instance with all classmates
 
-Backbone.sync("create", entire_group);
+Backbone.sync("read", entire_group);
 
 // entire_group.fetch(); // takes all objects on server and places them in the collection entire_group
 
