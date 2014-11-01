@@ -10,7 +10,8 @@ var Classmate = Backbone.Model.extend({
     avatar: ''
   },
 
-  idAttribute: '_id',
+  idAttribute: '_id', // need because we are using MongoDB
+
 
   initialize: function() {
     console.log("Classmate initialized");

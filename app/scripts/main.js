@@ -1,44 +1,28 @@
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 // Model Constructor is Classmate
-// Collection Constructor is Group
+// Collection Constructor is Group :::::: entire_group is collection of classmates
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 var findID;
 var uniqueID;
 
-$('#update').on('submit', function(e){
 
-  // e.preventDefault();
-
-  var secret = $('#secretID').val();
-  var newHigh = $('#highUpdate').val();
+$('#update').on('click', function(e){
+  // on click of update feelings button
+  e.preventDefault();
+  // take input values
+  // trim removes spaces before or after
+  var secret = $.trim( $('#secretID').val() );
+  var newHigh = $.trim( $('#highUpdate').val() );
   var newLow = $('#lowUpdate').val();
-
-  // update groupArray from server
-  // entire_group.fetch().done( function(data){
-  //   findID = entire_group.findWhere({sID : secret});
-  //   console.log(findID);
-  //   // entire_group.add(findID);
-  // });
-
+  // need to compare secretID (secret) to
+  // secret IDs in the collection and return
   findID = entire_group.findWhere({sID : secret});
-  uniqueID = findID.attributes._id;
-  console.log(uniqueID);
-
-  var matching = entire_group.findWhere({_id: uniqueID});
-  matching.attributes.high = newHigh;
-  matching.save();
-
-  // _.each(entire_group, function(x){
-  //   if(x._id === uniqueID){
-  //     console.log(x);
-  //   }
-  // });
-
-  // console.log(uniqueID);
-  // findID.set('high', newHigh).set('low', newLow);
-
-  // uniqueID.set('high', newHigh).set('low', newLow);
-  // Save groupArray to server
-  // findID.save();
-
+  // need to set low and high properties
+  // to the new low and high
+  findID.set('low', newLow);
+  findID.set('high', newHigh);
+  // updates to server
+  findID.save();
+  // Clears input form
+  $('#secretID, #highUpdate, #lowUpdate').val('');
 });
