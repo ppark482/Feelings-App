@@ -19,20 +19,8 @@ $('#update').on('click', function(e){
   // to the new low and high
   findID.set('low', newLow);
   findID.set('high', newHigh);
-  // need to repopulate server
+  // updates to server
   findID.save();
   // Clears input form
   $('#secretID, #highUpdate, #lowUpdate').val('');
-
-  // update groupArray from server
-  // entire_group.fetch().done( function(data){
-  //   findID = entire_group.findWhere({sID : secret});
-  //   console.log(findID);
-  //   // entire_group.add(findID);
-  // });
-
-  // uniqueID.set('high', newHigh).set('low', newLow);
-  // Save groupArray to server
-  // findID.save();
-
 });

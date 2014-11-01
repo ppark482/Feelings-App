@@ -1,7 +1,9 @@
  // Bourbon & Neat
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
-
+@import '_inputform.scss';
+@import '_featured.scss';
+@import '_classmates.scss';
 // Custom Styles
 body {
   background: #fafafa;
