@@ -3,7 +3,7 @@
 var Group = Backbone.Collection.extend({
 
   model: Classmate,
-  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings2'// server url,
+  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings4'// server url,
 
 });
 
@@ -149,28 +149,26 @@ var wendy = new Classmate ({
   high: '',
   avatar: ''
 });
-
+// [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]
 var placeholder1 = new Classmate ({});
 var placeholder2 = new Classmate ({});
 var placeholder3 = new Classmate ({});
 
 var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3];
 
-var entire_group = new Group( [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3] ); // new collection instance with all classmates
+var entire_group = new Group ([]);
 
-Backbone.sync("read", entire_group);
-
-// entire_group.fetch(); // takes all objects on server and places them in the collection entire_group
-
+// Brings down data from server
+entire_group.fetch().done(function() {});
 
 
-// _.each(groupArray, function(name){
-//   entire_group.add(name);
-//   name.set();
-// });
-//
-// console.log(entire_group);
-//
-// entire_group.fetch().done( function (data) {
-//   groupArray = data;
-// });
+/* DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE
+// Replace var entire_group with the one here
+// Replace entire_group.fetch().done(function() {}); with the Backbone.sync function
+// Use these to populate a new server
+
+var entire_group = new Group([andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]); // new collection instance with all classmates
+
+Backbone.sync("create", entire_group); // creates the entire group on the server
+
+DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE */

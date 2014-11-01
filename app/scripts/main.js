@@ -24,8 +24,6 @@ $('#update').on('click', function(e){
   // Clears input form
   $('#secretID, #highUpdate, #lowUpdate').val('');
 
-
-
   // update groupArray from server
   // entire_group.fetch().done( function(data){
   //   findID = entire_group.findWhere({sID : secret});
