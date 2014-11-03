@@ -49,6 +49,7 @@ header {
 .featured {
   @include span-columns(12);
   margin-bottom: 40px;
+  display: none;
 
   img {
     @include span-columns(3 of 12);
