@@ -1,9 +1,18 @@
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 // Model Constructor is Classmate
 // Collection Constructor is Group :::::: entire_group is collection of classmates
-// -------------------------------------------------------------------------------------------------------------------------------------------------
+// View Constructor is ClassView :::::  -------------------------------------------------------------------------------------------------------------------------------------------------
 var findID;
 var uniqueID;
+
+// Brings down data from server
+entire_group.fetch().done(function() {
+  new ClassView({
+    // after fetching from server
+    // collection entire_group is populated
+    collection: entire_group
+  });
+});
 
 
 $('#update').on('click', function(e){
@@ -25,14 +34,4 @@ $('#update').on('click', function(e){
   findID.save();
   // Clears input form
   $('#secretID, #highUpdate, #lowUpdate').val('');
-});
-
-
-// Templates
-var gridTemp = $('#grid').html();
-var renderGrid = _.template(gridTemp);
-
-_.each(entire_group, function(user){
-  console.log(user);
-  $('.classmates').append(renderGrid(user));
 });
