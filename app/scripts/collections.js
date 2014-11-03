@@ -13,7 +13,7 @@ var Group = Backbone.Collection.extend({
 var andrew = new Classmate ({
   name: 'Andrew El-Masry',
   class: 'Front End Hackorz',
-  sID: 'an17', // secret id
+  sID: 'an17',
   avatar: 'https://avatars3.githubusercontent.com/u/8506868?v=2&s=460'
 });
 
