@@ -14,7 +14,6 @@ var Classmate = Backbone.Model.extend({
 
 
   initialize: function() {
-    console.log("Classmate initialized");
   }
 
 

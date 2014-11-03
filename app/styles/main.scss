@@ -30,6 +30,11 @@ header {
 
   h1 {
     @include span-columns(8 of 12);
+    font-size: 2em;
+    span {
+      font-family: rubberneckregular;
+      color: HSLA(338, 95%, 56%, 1);
+    }
   }
 
   form {
@@ -66,4 +71,11 @@ header {
 
 .individual img {
   width: 50px;
+  border-radius: 5em;
+  transition: transform .5s;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: transform .5s;
+  }
 }

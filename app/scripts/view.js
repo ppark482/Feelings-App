@@ -7,18 +7,13 @@ var ClassView = Backbone.View.extend({
     this.render(options.collection);
   },
 
-  events: {
-    'click li.individual' : 'setFeatured',
-  },
-
-  setFeatured : function() {
-    var featuredTemp = $('#featuredTemp').html();
-    var renderFeat = _.template(featuredTemp);
-
-    var name = $(this).currentTarget
-
-    // $('.featured .high').html(renderFeat(this));
-  },
+  // events: {
+  //   'click li.individual' : 'setFeatured'
+  // },
+  //
+  // setFeatured : function() {
+  //   $('.featured .high').html();
+  // },
 
   render: function( collection) {
     // Templates

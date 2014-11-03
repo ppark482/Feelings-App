@@ -9,6 +9,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="../styles/font/stylesheet.css">
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
@@ -25,7 +26,7 @@
 
     <div class="container">
       <header>
-        <h1>NoMoreFeels.app</h1>
+        <h1>NoMore<span>Feels</span>.app</h1>
         <form action="" id="update">
           <input type="text" placeholder="Enter your ID" id="secretID">
           <input type="text" placeholder="High" id="highUpdate">
@@ -33,7 +34,21 @@
           <button id="updateBtn">Update the Feelings</button>
         </form>
       </header>
-      <div class="featured"></div> <!-- end of featured -->
+      <div class="featured">
+        <div class="featuredImg">
+          <img src="http://placehold.it/350x350">
+        </div>
+        <div class="feelings">
+          <h3>High</h3>
+          <p class="high">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos impedit ducimus ipsa, excepturi sint numquam obcaecati, suscipit reiciendis dicta provident temporibus asperiores autem dolorem porro nihil debitis cumque odio eius.
+          </p>
+          <h3>Low</h3>
+          <p class="low">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus fuga beatae animi cupiditate sed eaque quos repudiandae totam doloribus. Optio neque, non repudiandae tempore eaque quisquam nobis, vel culpa voluptatibus.
+          </p>
+        </div><!-- end of feelings -->
+      </div> <!-- end of featured -->
       <div class="profileGrid">
       </div>
 
@@ -41,11 +56,15 @@
     </div> <!-- end of container -->
 
     <script type="text/template" id="grid">
-      <li class="individual">
+      <li class="individual"
+      data-avatar="<%= avatar %>"
+      data-name="<%= name %>"
+      data-high="<%= high %>"
+      data-low="<%= low %>">
         <img src= '<%= avatar %>' />
-        <p> <%= name %> </p>
+        <!-- <p> <%= name %> </p>
         <p> <%= high %> </p>
-        <p> <%= low %> </p>
+        <p> <%= low %> </p> -->
       </li>
     </script>
 

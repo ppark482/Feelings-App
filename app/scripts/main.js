@@ -14,7 +14,8 @@ entire_group.fetch().done(function() {
   });
 });
 
-// Update your feelings
+
+// On update feelings click
 $('#update').on('click', function(e){
   // on click of update feelings button
   e.preventDefault();
@@ -34,4 +35,20 @@ $('#update').on('click', function(e){
   findID.save();
   // Clears input form
   $('#secretID, #highUpdate, #lowUpdate').val('');
+});
+
+// On click of individual profiles
+// Populate the featured section
+$('.profileGrid').on('click', 'li', function() {
+  entire_group.fetch().done(function() {
+    new ClassView({
+        collection: entire_group
+    });
+  }); // refreshes collection
+  var featuredImage = $(this).data('avatar');
+  var featuredHigh = $(this).data('high');
+  var featuredLow = $(this).data('low');
+  $('.featuredImg').html(" <img src='" + featuredImage + "' /> ")
+  $('.high').html(featuredHigh);
+  $('.low').html(featuredLow);
 });
