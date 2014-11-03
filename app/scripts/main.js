@@ -16,7 +16,7 @@ entire_group.fetch().done(function() {
 
 
 // On update feelings click
-$('#update').on('click', function(e){
+$('#update').on('click', '#updateBtn', function(e){
   // on click of update feelings button
   e.preventDefault();
   // take input values

@@ -4,6 +4,9 @@
 @import '_inputform.scss';
 @import '_featured.scss';
 @import '_classmates.scss';
+
+$pink: rgb(250, 36, 114);
+
 // Custom Styles
 body {
   background: #fafafa;
@@ -46,9 +49,15 @@ header {
   input {
     display: inline-block;
   }
-  
+
   button {
     margin: 0 auto;
+    background-color: $pink;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 }
 
