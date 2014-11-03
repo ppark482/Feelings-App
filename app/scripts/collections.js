@@ -4,7 +4,7 @@ var Group = Backbone.Collection.extend({
 
   model: Classmate,
 
-  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings4'// server url,
+  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings5'// server url,
 });
 
 // Classmate instances
@@ -116,12 +116,10 @@ var wendy = new Classmate ({
   sID: 'we01', // secret id
   avatar: 'https://avatars1.githubusercontent.com/u/8864632?v=2&s=460'
 });
-// [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]
-var placeholder1 = new Classmate ({});
-var placeholder2 = new Classmate ({});
-var placeholder3 = new Classmate ({});
 
-var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3];
+// [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]
+
+var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
 
 var entire_group = new Group ();
 
@@ -132,7 +130,7 @@ var entire_group = new Group ();
 // Replace entire_group.fetch().done(function() {}); with the Backbone.sync function
 // Use these to populate a new server
 
-// var entire_group = new Group([andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]); // new collection instance with all classmates
+// var entire_group = new Group([andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy]); // new collection instance with all classmates
 //
 // Backbone.sync("create", entire_group); // creates the entire group on the server
 /*
