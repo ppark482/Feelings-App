@@ -156,7 +156,7 @@ var placeholder3 = new Classmate ({});
 
 var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3];
 
-var entire_group = new Group ([]);
+var entire_group = new Group ();
 
 // Brings down data from server
 entire_group.fetch().done(function() {});
