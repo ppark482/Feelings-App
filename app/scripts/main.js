@@ -14,7 +14,7 @@ entire_group.fetch().done(function() {
   });
 });
 
-
+// Update your feelings
 $('#update').on('click', function(e){
   // on click of update feelings button
   e.preventDefault();

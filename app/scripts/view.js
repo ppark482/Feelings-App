@@ -8,11 +8,16 @@ var ClassView = Backbone.View.extend({
   },
 
   events: {
-    'click li.individual' : 'setFeatured'
+    'click li.individual' : 'setFeatured',
   },
 
   setFeatured : function() {
-    $('.featured .high').html();
+    var featuredTemp = $('#featuredTemp').html();
+    var renderFeat = _.template(featuredTemp);
+
+    var name = $(this).currentTarget
+
+    // $('.featured .high').html(renderFeat(this));
   },
 
   render: function( collection) {

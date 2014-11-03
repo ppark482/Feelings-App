@@ -33,19 +33,7 @@
           <button id="updateBtn">Update the Feelings</button>
         </form>
       </header>
-      <div class="featured">
-        <img src="http://placehold.it/350x350">
-        <div class="feelings">
-          <h3>High</h3>
-          <p class="high">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos impedit ducimus ipsa, excepturi sint numquam obcaecati, suscipit reiciendis dicta provident temporibus asperiores autem dolorem porro nihil debitis cumque odio eius.
-          </p>
-          <h3>Low</h3>
-          <p class="low">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus fuga beatae animi cupiditate sed eaque quos repudiandae totam doloribus. Optio neque, non repudiandae tempore eaque quisquam nobis, vel culpa voluptatibus.
-          </p>
-        </div><!-- end of feelings -->
-      </div> <!-- end of featured -->
+      <div class="featured"></div> <!-- end of featured -->
       <div class="profileGrid">
       </div>
 
@@ -59,6 +47,16 @@
         <p> <%= high %> </p>
         <p> <%= low %> </p>
       </li>
+    </script>
+
+    <script type="text/template" id="featuredTemp">
+      <img src=" <%= avatar %> ">
+      <div class="feelings">
+        <h3>High</h3>
+        <p class="high"><%= high %></p>
+        <h3>Low</h3>
+        <p class="low"><%= low %></p>
+      </div><!-- end of feelings -->
     </script>
 
     <!-- build:js scripts/vendor.js -->
