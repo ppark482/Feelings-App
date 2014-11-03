@@ -44,8 +44,10 @@ $('.profileGrid').on('click', 'li', function() {
         collection: entire_group
     });
   }); // refreshes collection
+  var featuredImage = $(this).data('avatar');
   var featuredHigh = $(this).data('high');
   var featuredLow = $(this).data('low');
+  $('.featuredImg').html(" <img src='" + featuredImage + "' /> ")
   $('.high').html(featuredHigh);
   $('.low').html(featuredLow);
 });
