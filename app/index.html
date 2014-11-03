@@ -44,14 +44,18 @@
           <p class="low">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus fuga beatae animi cupiditate sed eaque quos repudiandae totam doloribus. Optio neque, non repudiandae tempore eaque quisquam nobis, vel culpa voluptatibus.
           </p>
-        </div>
+        </div><!-- end of feelings -->
+      </div> <!-- end of featured -->
+      <div class="profileGrid">
       </div>
-      <ul class="classmates"></ul>
-    </div>
+
+
+    </div> <!-- end of container -->
 
     <script type="text/template" id="grid">
       <li>
-        <img src="<%= avatar %>">
+        <img src= '<% avatar %>' />
+        <p> <%= name %> </p>
       </li>
     </script>
 
@@ -66,7 +70,7 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/models.js"></script>
         <script src="scripts/collections.js"></script>
-        <script src="scripts/views.js"></script>
+        <script src="scripts/view.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
