@@ -46,60 +46,14 @@
           </p>
         </div>
       </div>
-      <ul class="classmates">
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-        <li>
-          <img src="http://placehold.it/350x350">
-        </li>
-      </ul>
+      <ul class="classmates"></ul>
     </div>
+
+    <script type="text/template" id="grid">
+      <li>
+        <img src="<%= avatar %>">
+      </li>
+    </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -112,6 +66,7 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/models.js"></script>
         <script src="scripts/collections.js"></script>
+        <script src="scripts/views.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

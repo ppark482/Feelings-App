@@ -26,3 +26,13 @@ $('#update').on('click', function(e){
   // Clears input form
   $('#secretID, #highUpdate, #lowUpdate').val('');
 });
+
+
+// Templates
+var gridTemp = $('#grid').html();
+var renderGrid = _.template(gridTemp);
+
+_.each(entire_group, function(user){
+  console.log(user);
+  $('.classmates').append(renderGrid(user));
+});
