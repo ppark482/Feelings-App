@@ -7,11 +7,18 @@ var ClassView = Backbone.View.extend({
     this.render(options.collection);
   },
 
+  events: {
+    'click li.individual' : 'setFeatured'
+  },
+
+  setFeatured : function() {
+    $('.featured .high').html();
+  },
+
   render: function( collection) {
     // Templates
     var gridTemp = $('#grid').html();
     var renderGrid = _.template(gridTemp);
-
     // Binding self
     var self = this;
     // iterating through the entire_group
