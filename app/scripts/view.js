@@ -7,13 +7,13 @@ var ClassView = Backbone.View.extend({
     this.render(options.collection);
   },
 
-  events: {
-    'click li.individual' : 'setFeatured'
-  },
-
-  setFeatured : function() {
-    $('.featured .high').html();
-  },
+  // events: {
+  //   'click li.individual' : 'setFeatured'
+  // },
+  //
+  // setFeatured : function() {
+  //   $('.featured .high').html();
+  // },
 
   render: function( collection) {
     // Templates
