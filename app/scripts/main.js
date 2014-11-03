@@ -13,7 +13,7 @@ $('#update').on('click', function(e){
   // trim removes spaces before or after
   var secret = $.trim( $('#secretID').val() );
   var newHigh = $.trim( $('#highUpdate').val() );
-  var newLow = $('#lowUpdate').val();
+  var newLow = $.trim( $('#lowUpdate').val() );
   // need to compare secretID (secret) to
   // secret IDs in the collection and return
   findID = entire_group.findWhere({sID : secret});
