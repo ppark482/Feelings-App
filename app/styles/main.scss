@@ -54,7 +54,7 @@ header {
   }
 }
 
-.classmates {
+.profileGrid {
   @include span-columns(12);
 
   li {
@@ -62,4 +62,8 @@ header {
     @include omega(12n);
     margin-bottom: 20px;
   }
+}
+
+.individual img {
+  width: 50px;
 }
