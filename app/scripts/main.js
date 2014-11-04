@@ -16,7 +16,7 @@ entire_group.fetch().done(function() {
 
 
 // On update feelings click
-$('#update').on('click', function(e){
+$('#update').on('click', '#updateBtn', function(e){
   // on click of update feelings button
   e.preventDefault();
   // take input values
@@ -44,7 +44,7 @@ $('.profileGrid').on('click', 'li', function() {
     new ClassView({
         collection: entire_group
     });
-    $('.featured').css('display', 'block');
+    $('#featured').css('display', 'block');
   }); // refreshes collection
   var featuredImage = $(this).data('avatar');
   var featuredHigh = $(this).data('high');
