@@ -1,20 +1,24 @@
-var Classmate = Backbone.Model.extend({
+(function(){
 
-  defaults: {
+  App.Models.Classmate = Backbone.Model.extend({
 
-    name: '',
-    class: 'Front End Hackorz',
-    sID: '', // secret id
-    low: '',
-    high: '',
-    avatar: ''
-  },
+    defaults: {
 
-  idAttribute: '_id', // need because we are using MongoDB
+      name: '',
+      class: 'Front End Hackorz',
+      sID: '', // secret id
+      low: '',
+      high: '',
+      avatar: ''
+    },
 
-
-  initialize: function() {
-  }
+    idAttribute: '_id', // need because we are using MongoDB
 
 
-});
+    initialize: function() {
+    }
+
+
+  });
+
+}());

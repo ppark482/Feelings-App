@@ -52,12 +52,12 @@
 
     <script type="text/template" id="grid">
       <a href="#featured">
-        <li class="individual"
+        <li id="<%= _id %>" class="individual"
         data-avatar="<%= avatar %>"
         data-name="<%= name %>"
         data-high="<%= high %>"
         data-low="<%= low %>">
-          <img src= '<%= avatar %>' />
+          <img id="<%= _id %>" src= '<%= avatar %>' />
           <!-- <p> <%= name %> </p>
           <p> <%= high %> </p>
           <p> <%= low %> </p> -->
@@ -86,6 +86,7 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/alphaLoad.js"></script>
         <script src="scripts/models.js"></script>
         <script src="scripts/collections.js"></script>
         <script src="scripts/view.js"></script>
