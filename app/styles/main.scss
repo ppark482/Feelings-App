@@ -3,6 +3,7 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 @import '_inputform.scss';
 @import '_classmates.scss';
+@import '_banner.scss';
 
 $pink: rgb(250, 36, 114);
 
@@ -152,11 +153,13 @@ h3.profile {
   width: 50%;
   border-radius: 5em;
   border: 3px solid black;
-  transition: transform .5s;
+  filter: sepia(1);
+  transition: transform .5s, border .5s, filter .5s;
   &:hover {
     cursor: pointer;
     transform: scale(1.5);
-    transition: transform .5s;
+    transition: transform .5s, border .5s, filter .5s;
     border: 3px solid $pink;
+    filter: sepia(0);
   }
 }
