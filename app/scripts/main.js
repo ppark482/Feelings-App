@@ -13,9 +13,19 @@
     new App.Views.ClassView({});
     new App.Views.FormView({});
   });
-  
+
   App.feed_collection.fetch().done(function(){
     new App.Views.FeedView({});
+  });
+
+  $(document).ready(function(){
+  var follow = $('.follow').css({position: 'absolute'});
+  $(document).mousemove(function(e){
+    follow.css({
+      "top" : e.pageY + 5,
+      "left" : e.pageX + 5
+      });
+    });
   });
 
 }());

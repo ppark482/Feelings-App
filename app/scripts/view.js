@@ -145,7 +145,7 @@
       var self = this;
       // iterating through the entire_group
       _.each(App.feed_collection.models, function(user){
-        self.$el.prepend(renderFeed(user.attributes));
+        self.$el.append(renderFeed(user.attributes));
       });
 
       // Take data and append to specific
