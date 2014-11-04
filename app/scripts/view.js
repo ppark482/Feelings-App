@@ -62,6 +62,7 @@
     initialize: function(){
 
       this.render();
+      App.entire_group.on('sync', this.updateFeels, this);
 
     },
 

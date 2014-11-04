@@ -14,10 +14,7 @@
 
     idAttribute: '_id', // need because we are using MongoDB
 
-
-    initialize: function() {
-    }
-
+    initialize: function() {}
 
   });
 
