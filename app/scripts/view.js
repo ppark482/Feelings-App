@@ -11,7 +11,6 @@
 
     initialize: function() {
       this.render(App.entire_group);
-
       App.entire_group.on('sync', this.render, this);
     },
 
@@ -94,9 +93,14 @@
 
       // updates to server
       findID.save();
-
       // Clears input form
       $('#secretID, #highUpdate, #lowUpdate').val('');
+      // updates featured block
+      $('#featured').css('display', 'block');
+      
+      $('.featuredImg').html(" <img src='" + findID.attributes.avatar + "' /> ")
+      $('.high').html(findID.attributes.high);
+      $('.low').html(findID.attributes.low);
 
     }
 
