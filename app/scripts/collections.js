@@ -4,7 +4,7 @@
 
     model: App.Models.Classmate,
 
-    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings5'// server url,
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'// server url,
   });
 
   App.Collections.Feed = Backbone.Collection.extend({
