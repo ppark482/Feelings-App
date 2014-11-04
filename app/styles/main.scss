@@ -108,6 +108,7 @@ header {
   padding-bottom: 40px;
   display: none;
   border-bottom: 4px solid black;
+  transition: display .5s;
 
   h3 {
     color: $pink;
@@ -130,6 +131,7 @@ h3.profile {
   margin: 0 0 40px 0;
   letter-spacing: 1px;
   color: $pink;
+  cursor: pointer;
 }
 
 .profileGrid {
