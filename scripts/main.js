@@ -137,6 +137,25 @@ var wendy = new Classmate ({
   sID: 'we01', // secret id
   avatar: 'https://avatars1.githubusercontent.com/u/8864632?v=2&s=460'
 });
+var sarah = new Classmate ({
+  name: "Sarah Lodato",
+  sID: "lodato",
+  avatar: "https://pbs.twimg.com/profile_images/515249052431052800/xaVWxMV0_400x400.png",
+  class: "Front End Hackorz"
+});
+var james = new Classmate ({
+  name: "James Dabbs",
+  sID: "dabbs",
+  avatar: "https://pbs.twimg.com/profile_images/490535209578680320/T6WhBSGG_400x400.jpeg",
+  class: "Front End Hackorz"
+});
+
+var laura = new Classmate ({
+  name: "Laura Lindeman",
+  sID: "lindeman",
+  avatar: "https://pbs.twimg.com/profile_images/515159398667137024/1cLAmyws_400x400.jpeg",
+  class: "Front End Hackorz"
+});
 
 // [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]
 
@@ -214,7 +233,7 @@ entire_group.fetch().done(function() {
 
 
 // On update feelings click
-$('#update').on('click', function(e){
+$('#update').on('click', '#updateBtn', function(e){
   // on click of update feelings button
   e.preventDefault();
   // take input values
@@ -242,7 +261,7 @@ $('.profileGrid').on('click', 'li', function() {
     new ClassView({
         collection: entire_group
     });
-    $('.featured').css('display', 'block');
+    $('#featured').css('display', 'block');
   }); // refreshes collection
   var featuredImage = $(this).data('avatar');
   var featuredHigh = $(this).data('high');
