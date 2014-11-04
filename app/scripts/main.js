@@ -44,7 +44,7 @@ $('.profileGrid').on('click', 'li', function() {
     new ClassView({
         collection: entire_group
     });
-    $('.featured').css('display', 'block');
+    $('#featured').css('display', 'block');
   }); // refreshes collection
   var featuredImage = $(this).data('avatar');
   var featuredHigh = $(this).data('high');

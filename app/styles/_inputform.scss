@@ -1,8 +1,3 @@
-header {
-  height: 350px;
-  border-bottom: 1px solid gray;
-}
-
 // Whole Form
 #update {
   clear: both;
@@ -15,17 +10,4 @@ header {
   width: 100%;
   height: 50px;
   margin-bottom: 10px;
-}
-
-#highUpdate, #lowUpdate {
-
-}
-
-#updateBtn {
-  width: 50%;
-  height: 50px;
-  margin: 0 auto;
-  &:hover {
-
-  }
 }
