@@ -23,24 +23,27 @@
     <!-- endbuild -->
   </head>
   <body>
-    <div class="container">
-      <header id="inputForm"></header>
-      <div id="featured">
-        <div class="featuredImg">
-          <img src="http://placehold.it/350x350">
-        </div>
-        <div class="feelings">
-          <h3>HIGH OF THE WEEK:</h3>
-          <p class="high"></p>
-          <h3>LOW OF THE WEEK:</h3>
-          <p class="low"></p>
-        </div><!-- end of feelings -->
-      </div> <!-- end of featured -->
-      <h3 class="profile">CLICK FOR THE FEELINGS</h3>
-      <div class="profileGrid"></div>
+    <div class="wrapper">
+      <div class="container">
+        <header id="inputForm"></header>
+        <div id="featured">
+          <div class="featuredImg">
+            <img src="http://placehold.it/350x350">
+          </div>
+          <div class="feelings">
+            <h3>HIGH OF THE WEEK:</h3>
+            <p class="high"></p>
+            <h3>LOW OF THE WEEK:</h3>
+            <p class="low"></p>
+          </div><!-- end of feelings -->
+        </div> <!-- end of featured -->
+        <h3 class="profile">CLICK FOR THE FEELINGS</h3>
+        <div class="profileGrid"></div>
+      </div> <!-- end of container -->
 
+      <div id="feedContainer"></div>
 
-    </div> <!-- end of container -->
+    </div> <!-- end of wrapper -->
 
     <script type="text/template" id="grid">
       <a href="#featured">
@@ -77,6 +80,24 @@
         <input type="text" placeholder="low of the week" id="lowUpdate">
         <button id="updateBtn">Update the Feelings</button>
       </form>
+    </script>
+
+    <script type="text/template" id="feedTemp">
+      <h2>Feels Feed</h2>
+      <ul class="feed">
+        <li>
+          <img src="<%= avatar %>">
+          <h3><%= name %></h3>
+          <p>
+            <span>HIGH:</span>
+            <%= high %>
+          </p>
+          <p>
+            <span>LOW:</span>
+            <%= low %>
+          </p>
+        </li>
+      </ul>
     </script>
 
     <!-- build:js scripts/vendor.js -->
