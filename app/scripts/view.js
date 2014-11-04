@@ -35,57 +35,20 @@
     }, // end of render
 
     setFeatured : function(e) {
-      App.entire_group.fetch().done(function() {
-
-        console.log(e);
 
       var id = $(e.currentTarget).attr('id');
 
-      console.log(id);
-
       var feature = App.entire_group.get(id);
-
-      console.log(feature);
 
       $('#featured').css('display', 'block');
 
-      // var featuredImage = $(feature).attributes.('avatar');
-      // var featuredHigh = $(feature).attributes.('high');
-      // var featuredLow = $(feature).attributes.('low');
-      $('.featuredImg').html(" <img src='" + featured.attributes.avatar + "' /> ")
-      $('.high').html(featured.attributes.high);
-      $('.low').html(featured.attributes.low);
+      $('.featuredImg').html(" <img src='" + feature.attributes.avatar + "' /> ")
+      $('.high').html(feature.attributes.high);
+      $('.low').html(feature.attributes.low);
 
-    });
-
-
-     // refreshes collection
-      // var featuredImage = $(this).data('avatar');
-      // var featuredHigh = $(this).data('high');
-      // var featuredLow = $(this).data('low');
-      // $('.featuredImg').html(" <img src='" + featuredImage + "' /> ")
-      // $('.high').html(featuredHigh);
-      // $('.low').html(featuredLow);
     },
 
 
   });
 
 }());
-
-
-// // Populate the featured section
-// $('.profileGrid').on('click', 'li', function() {
-//   entire_group.fetch().done(function() {
-//     new App.Views.ClassView({
-//         collection: entire_group
-//     });
-//     $('#featured').css('display', 'block');
-//   }); // refreshes collection
-//   var featuredImage = $(this).data('avatar');
-//   var featuredHigh = $(this).data('high');
-//   var featuredLow = $(this).data('low');
-//   $('.featuredImg').html(" <img src='" + featuredImage + "' /> ")
-//   $('.high').html(featuredHigh);
-//   $('.low').html(featuredLow);
-// });
