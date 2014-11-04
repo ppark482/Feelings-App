@@ -56,7 +56,7 @@
     el: '#inputForm',
 
     events: {
-      'click #updateBtn': 'updateFeels'
+      'click #updateBtn': 'updateFeels',
     },
 
     initialize: function(){
@@ -93,6 +93,16 @@
       findID.set('low', newLow);
       findID.set('high', newHigh);
 
+      // Append to feed
+      var newPost = new App.Models.Classmate({
+        name: findID.attributes.name,
+        low: findID.attributes.low,
+        high: findID.attributes.high,
+        avatar: findID.attributes.avatar
+      });
+      console.log(newPost);
+      App.feed_collection.add(newPost).save();
+
       // updates to server
       findID.save();
 
@@ -100,6 +110,49 @@
       $('#secretID, #highUpdate, #lowUpdate').val('');
 
     }
+
+  });
+
+  // Feed view
+  App.Views.FeedView = Backbone.View.extend({
+
+    el: '#feed',
+
+    events: {
+      'click #updateBtn': 'addToFeed',
+    },
+
+    initialize: function(){
+
+      this.render();
+      App.feed_collection.on('sync', this.render, this);
+
+    },
+
+    render: function(){
+
+      var feed = $('#feedTemp').html();
+      var renderFeed = _.template(feed);
+
+      // Clear our element
+      this.$el.empty();
+
+      // Binding self
+      var self = this;
+      // iterating through the entire_group
+      _.each(App.feed_collection.models, function(user){
+        self.$el.prepend(renderFeed(user.attributes));
+      });
+
+      // Take data and append to specific
+      // DOM element
+      $('#feedContainer').html(this.el);
+
+      return this;
+
+    },
+
+    addToFeed: function(){}
 
   });
 

@@ -13,5 +13,9 @@
     new App.Views.ClassView({});
     new App.Views.FormView({});
   });
+  
+  App.feed_collection.fetch().done(function(){
+    new App.Views.FeedView({});
+  });
 
 }());

@@ -41,7 +41,12 @@
         <div class="profileGrid"></div>
       </div> <!-- end of container -->
 
-      <div id="feedContainer"></div>
+      <div class="feedContainer">
+        <h2>Feed O Feelsies</h2>
+        <div id="feedContainer">
+          <ul id="feed"></ul>
+        </div>
+      </div>
 
     </div> <!-- end of wrapper -->
 
@@ -83,8 +88,6 @@
     </script>
 
     <script type="text/template" id="feedTemp">
-      <h2>Feels Feed</h2>
-      <ul class="feed">
         <li>
           <img src="<%= avatar %>">
           <h3><%= name %></h3>
@@ -97,7 +100,6 @@
             <%= low %>
           </p>
         </li>
-      </ul>
     </script>
 
     <!-- build:js scripts/vendor.js -->

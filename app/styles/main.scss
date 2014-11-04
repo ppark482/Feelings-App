@@ -35,7 +35,7 @@ ul, li {
 
 .container {
   @include outer-container;
-  max-width: 600px;
+  max-width: 66%;
   float: left;
 }
 
@@ -173,18 +173,17 @@ h3.profile {
 }
 
 // Feed Styles
-
-#feedContainer {
+.feedContainer {
   @include outer-container;
   float: right;
-  width: 320px;
+  width: 30%;
   padding: 14px;
   background-color: black;
   color: white;
   text-align: center;
 }
 
-.feed {
+#feed {
 
   h2 {
     @include span-columns(12);
