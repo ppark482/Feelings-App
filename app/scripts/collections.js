@@ -5,6 +5,14 @@
     model: App.Models.Classmate,
 
     url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'// server url,
+
+  });
+
+  App.Collections.Feed = Backbone.Collection.extend({
+
+    model: App.Models.Classmate,
+
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed'// server url,
   });
 
 }());
@@ -143,6 +151,8 @@ var laura = new App.Models.Classmate ({
 var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
 
 App.entire_group = new App.Collections.Group ();
+
+App.feed_collection = new App.Collections.Feed ();
 
 
 /* DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE

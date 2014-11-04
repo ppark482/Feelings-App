@@ -6,11 +6,17 @@
 
 $pink: rgb(250, 36, 114);
 
-// Custom Styles
+// Defaults Styles
 body {
   background: #F7F7F7;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: auto;
 }
 
 img {
@@ -24,10 +30,13 @@ ul, li {
   text-decoration: none;
 }
 
+
+// Main container
+
 .container {
   @include outer-container;
-  max-width: 600px;
-  margin: 20px auto;
+  max-width: 66%;
+  float: left;
 }
 
 header {
@@ -159,5 +168,41 @@ h3.profile {
     transition: transform .5s, border .5s, filter .5s;
     border: 3px solid $pink;
     filter: sepia(0);
+  }
+}
+
+// Feed Styles
+.feedContainer {
+  @include outer-container;
+  float: right;
+  width: 30%;
+  padding: 14px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#feed {
+
+  h2 {
+    @include span-columns(12);
+    @include omega();
+  }
+
+  img {
+    @include span-columns(4);
+    @include shift(4);
+    border-radius: 50%;
+  }
+
+  h3 {
+    @include span-columns(12);
+    @include omega();
+  }
+
+  p {
+    @include span-columns(12);
+    @include omega();
+    text-align: left;
   }
 }

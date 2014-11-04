@@ -23,6 +23,7 @@
     <!-- endbuild -->
   </head>
   <body>
+<<<<<<< HEAD
     <div class="container">
       <header id="inputForm"></header>
       <div id="featured">
@@ -39,6 +40,34 @@
       <h3 class="profile">CLICK FOR THE FEELINGS</h3>
       <div class="profileGrid"></div>
     </div> <!-- end of container -->
+=======
+    <div class="wrapper">
+      <div class="container">
+        <header id="inputForm"></header>
+        <div id="featured">
+          <div class="featuredImg">
+            <img src="http://placehold.it/350x350">
+          </div>
+          <div class="feelings">
+            <h3>HIGH OF THE WEEK:</h3>
+            <p class="high"></p>
+            <h3>LOW OF THE WEEK:</h3>
+            <p class="low"></p>
+          </div><!-- end of feelings -->
+        </div> <!-- end of featured -->
+        <h3 class="profile">CLICK FOR THE FEELINGS</h3>
+        <div class="profileGrid"></div>
+      </div> <!-- end of container -->
+
+      <div class="feedContainer">
+        <h2>Feed O Feelsies</h2>
+        <div id="feedContainer">
+          <ul id="feed"></ul>
+        </div>
+      </div>
+
+    </div> <!-- end of wrapper -->
+>>>>>>> dev
 
     <script type="text/template" id="grid">
       <a href="#featured">
@@ -72,6 +101,21 @@
         <input type="text" placeholder="low of the week" id="lowUpdate">
         <button id="updateBtn">Update the Feelings</button>
       </form>
+    </script>
+
+    <script type="text/template" id="feedTemp">
+        <li>
+          <img src="<%= avatar %>">
+          <h3><%= name %></h3>
+          <p>
+            <span>HIGH:</span>
+            <%= high %>
+          </p>
+          <p>
+            <span>LOW:</span>
+            <%= low %>
+          </p>
+        </li>
     </script>
 
     <!-- build:js scripts/vendor.js -->
