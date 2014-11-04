@@ -24,15 +24,7 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>NoMore<span>Feels</span>.app</h1>
-        <form action="" id="update">
-          <input type="text" placeholder="Enter your ID" id="secretID">
-          <input type="text" placeholder="HIGH OF THE WEEK" id="highUpdate">
-          <input type="text" placeholder="low of the week" id="lowUpdate">
-          <button id="updateBtn">Update the Feelings</button>
-        </form>
-      </header>
+      <header id="inputForm"></header>
       <div id="featured">
         <div class="featuredImg">
           <img src="http://placehold.it/350x350">
@@ -75,6 +67,16 @@
           <p class="low"><%= low %></p>
         </div> <!-- end of feelings -->
       </div>  <!-- end of slow open -->
+    </script>
+
+    <script type="text/template" id="formTemp">
+      <h1>NoMore<span>Feels</span>.app</h1>
+      <form action="" id="update">
+        <input type="text" placeholder="Enter your ID" id="secretID">
+        <input type="text" placeholder="HIGH OF THE WEEK" id="highUpdate">
+        <input type="text" placeholder="low of the week" id="lowUpdate">
+        <button id="updateBtn">Update the Feelings</button>
+      </form>
     </script>
 
     <!-- build:js scripts/vendor.js -->
