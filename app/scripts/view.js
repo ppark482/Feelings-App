@@ -129,7 +129,7 @@
     initialize: function(){
 
       this.render();
-      App.feed_collection.on('sync', this.render, this);
+      App.feed_collection.listenTo(this, 'sync', this.render);
 
     },
 
@@ -140,6 +140,11 @@
 
       // Clear our element
       this.$el.empty();
+
+      // Removing oldest instance
+      var kill = App.feed_collection.pop();
+      var killID = kill.id;
+      App.feed_collection.remove(killID);
 
       // Binding self
       var self = this;
