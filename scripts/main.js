@@ -1,156 +1,171 @@
-var Classmate = Backbone.Model.extend({
+window.App = {};
+App.Models = {};
+App.Collections = {};
+App.Views = {};
+(function(){
 
-  defaults: {
+  App.Models.Classmate = Backbone.Model.extend({
 
-    name: '',
-    class: 'Front End Hackorz',
-    sID: '', // secret id
-    low: '',
-    high: '',
-    avatar: ''
-  },
+    defaults: {
 
-  idAttribute: '_id', // need because we are using MongoDB
+      name: '',
+      class: 'Front End Hackorz',
+      sID: '', // secret id
+      low: '',
+      high: '',
+      avatar: ''
+    },
 
+    idAttribute: '_id', // need because we are using MongoDB
 
-  initialize: function() {
-  }
+    initialize: function() {}
 
+  });
 
-});
+}()); // end of IIF
 
-// var andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy;
+(function(){
 
-var Group = Backbone.Collection.extend({
+  App.Collections.Group = Backbone.Collection.extend({
+    
+    model: App.Models.Classmate,
 
-  model: Classmate,
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'// server url,
 
-  url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings5'// server url,
-});
+  });
+
+  App.Collections.Feed = Backbone.Collection.extend({
+
+    model: App.Models.Classmate,
+
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed'// server url,
+  });
+
+}());
 
 // Classmate instances
 // --------------------------------------------------------------------------------------------------------------------------------------------
 
-var andrew = new Classmate ({
+var andrew = new App.Models.Classmate ({
   name: 'Andrew El-Masry',
   class: 'Front End Hackorz',
   sID: 'an17',
   avatar: 'https://avatars3.githubusercontent.com/u/8506868?v=2&s=460'
 });
 
-var chelsea = new Classmate ({
+var chelsea = new App.Models.Classmate ({
   name: 'Chelsea Franz',
   class: 'Front End Hackorz',
   sID: 'ch16', // secret id
   avatar: 'https://avatars0.githubusercontent.com/u/8863457?v=2&s=460'
 });
 
-var chase = new Classmate ({
+var chase = new App.Models.Classmate ({
   name: 'Chase Simpson',
   class: 'Front End Hackorz',
   sID: 'ch15', // secret id
   avatar: 'https://avatars3.githubusercontent.com/u/8864004?v=2&s=460'
 });
-var dean = new Classmate ({
+var dean = new App.Models.Classmate ({
   name: 'Dean Gili',
   class: 'Front End Hackorz',
   sID: 'de14', // secret id
   avatar: 'https://avatars0.githubusercontent.com/u/8864519?v=2&s=460'
 });
 
-var emory = new Classmate ({
+var emory = new App.Models.Classmate ({
   name: 'Emory Grifif',
   class: 'Front End Hackorz',
   sID: 'em13', // secret id
   avatar: 'https://avatars0.githubusercontent.com/u/8863456?v=2&s=460'
 });
-var john = new Classmate ({
+var john = new App.Models.Classmate ({
   name: 'John Crocker',
   class: 'Front End Hackorz',
   sID: 'jo12', // secret id
   avatar: 'https://avatars1.githubusercontent.com/u/8863455?v=2&s=460'
 });
-var joanna = new Classmate ({
+var joanna = new App.Models.Classmate ({
   name: 'Joanna Edgal',
   class: 'Front End Hackorz',
   sID: 'jo11', // secret id
   avatar: 'https://avatars2.githubusercontent.com/u/8863463?v=2&s=460'
 });
-var maggie = new Classmate ({
+var maggie = new App.Models.Classmate ({
   name: 'Maggie Martin',
   class: 'Front End Hackorz',
   sID: 'ma10', // secret id
   avatar: 'https://avatars1.githubusercontent.com/u/8229633?v=2&s=460'
 });
-var matthew = new Classmate ({
+var matthew = new App.Models.Classmate ({
   name: 'Matthew Griffeth',
   class: 'Front End Hackorz',
   sID: 'ma09', // secret id
   avatar: 'https://avatars3.githubusercontent.com/u/8284438?v=2&s=460'
 });
-var max = new Classmate ({
+var max = new App.Models.Classmate ({
   name: 'Max Ehnert',
   class: 'Front End Hackorz',
   sID: 'ma08', // secret id
   avatar: 'https://avatars3.githubusercontent.com/u/8755250?v=2&s=460'
 });
-var mike = new Classmate ({
+var mike = new App.Models.Classmate ({
   name: 'Mike Zevitas',
   class: 'Front End Hackorz',
   sID: 'mi07', // secret id
   avatar: 'https://avatars0.githubusercontent.com/u/8862531?v=2&s=460'
 });
-var paul = new Classmate ({
+var paul = new App.Models.Classmate ({
   name: 'Paul Park',
   class: 'Front End Hackorz',
   sID: 'pa06', // secret id
   avatar: 'https://avatars2.githubusercontent.com/u/8863462?v=2&s=460'
 });
-var richard = new Classmate ({
+var richard = new App.Models.Classmate ({
   name: 'Richard Daniel',
   class: 'Front End Hackorz',
   sID: 'ri05', // secret id
   avatar: 'https://avatars3.githubusercontent.com/u/4088267?v=2&s=460',
   property: 'testing'
 });
-var tim = new Classmate ({
+var tim = new App.Models.Classmate ({
   name: 'Tim Whitacre',
   class: 'Front End Hackorz',
   sID: 'ti04', // secret id
   avatar: 'https://avatars2.githubusercontent.com/u/425938?v=2&s=460'
 });
-var thomas = new Classmate ({
+var thomas = new App.Models.Classmate ({
   name: 'Thomas McCracken',
   class: 'Front End Hackorz',
   sID: 'th03', // secret id
   avatar: 'https://avatars3.githubusercontent.com/u/2215681?v=2&s=460'
 });
-var victoria = new Classmate ({
+var victoria = new App.Models.Classmate ({
   name: 'Victoria Nicholson',
   class: 'Front End Hackorz',
   sID: 'vi02', // secret id
   avatar: 'https://avatars1.githubusercontent.com/u/8070653?v=2&s=460'
 });
-var wendy = new Classmate ({
+var wendy = new App.Models.Classmate ({
   name: 'Wendy Nichols',
   class: 'Front End Hackorz',
   sID: 'we01', // secret id
   avatar: 'https://avatars1.githubusercontent.com/u/8864632?v=2&s=460'
 });
-var sarah = new Classmate ({
+var sarah = new App.Models.Classmate ({
   name: "Sarah Lodato",
   sID: "lodato",
   avatar: "https://pbs.twimg.com/profile_images/515249052431052800/xaVWxMV0_400x400.png",
   class: "Front End Hackorz"
 });
-var james = new Classmate ({
+var james = new App.Models.Classmate ({
   name: "James Dabbs",
   sID: "dabbs",
   avatar: "https://pbs.twimg.com/profile_images/490535209578680320/T6WhBSGG_400x400.jpeg",
   class: "Front End Hackorz"
 });
 
-var laura = new Classmate ({
+var laura = new App.Models.Classmate ({
   name: "Laura Lindeman",
   sID: "lindeman",
   avatar: "https://pbs.twimg.com/profile_images/515159398667137024/1cLAmyws_400x400.jpeg",
@@ -161,112 +176,217 @@ var laura = new Classmate ({
 
 var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
 
-var entire_group = new Group ();
+App.entire_group = new App.Collections.Group ();
+
+App.feed_collection = new App.Collections.Feed ();
 
 
 /* DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE
 // THE GOD FUNCTION
-// Replace var entire_group with the one here */
-// Replace entire_group.fetch().done(function() {}); with the Backbone.sync function
+// Replace App.entire_group with the one here */
+// Replace App.entire_group.fetch().done(function() {}); with the Backbone.sync function
 // Use these to populate a new server
 
-// var entire_group = new Group([andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy]); // new collection instance with all classmates
+// App.entire_group = new App.Collections.Group([andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, sarah, james, laura]); // new collection instance with all classmates
 //
-// Backbone.sync("create", entire_group); // creates the entire group on the server
+// Backbone.sync("create", App.entire_group); // creates the entire group on the server
 /*
 DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE */
 
-var ClassView = Backbone.View.extend({
+(function(){
 
-  tagName: 'ul',
-  className: 'profile',
+  App.Views.ClassView = Backbone.View.extend({
 
-  initialize: function(options) {
-    this.render(options.collection);
-  },
+    tagName: 'ul',
+    className: 'profile',
 
-  // events: {
-  //   'click li.individual' : 'setFeatured'
-  // },
-  //
-  // setFeatured : function() {
-  //   $('.featured .high').html();
-  // },
+    events: {
+      'click li.individual' : 'setFeatured'
+    },
 
-  render: function( collection) {
-    // Templates
-    var gridTemp = $('#grid').html();
-    var renderGrid = _.template(gridTemp);
-    // Binding self
-    var self = this;
-    // iterating through the entire_group
-    _.each(collection.models, function(user){
-      self.$el.append(renderGrid(user.attributes));
-    });
+    initialize: function() {
+      this.render(App.entire_group);
+      App.entire_group.on('sync', this.render, this);
+    },
 
-    // Take data and append to specific
-    // DOM element
-    $('.profileGrid').html(this.el);
+    render: function() {
+      // Templates
+      var gridTemp = $('#grid').html();
+      var renderGrid = _.template(gridTemp);
+      // Binding self
+      var self = this;
+      // iterating through the entire_group
+      _.each(App.entire_group.models, function(user){
+        self.$el.append(renderGrid(user.attributes));
+      });
 
-    return this;
+      // Take data and append to specific
+      // DOM element
+      $('.profileGrid').html(this.el);
 
-  } // end of render
+      return this;
 
+    }, // end of render
 
-});
+    setFeatured : function(e) {
+
+      var id = $(e.currentTarget).attr('id');
+
+      var feature = App.entire_group.get(id);
+
+      $('#featured').css('display', 'block');
+
+      $('.featuredImg').html(" <img src='" + feature.attributes.avatar + "' /> ")
+      $('.high').html(feature.attributes.high);
+      $('.low').html(feature.attributes.low);
+
+    },
+
+  }); // end of classview
+
+  // Form View
+  App.Views.FormView = Backbone.View.extend({
+
+    el: '#inputForm',
+
+    events: {
+      'click #updateBtn': 'updateFeels',
+    },
+
+    initialize: function(){
+
+      this.render();
+      App.entire_group.on('sync', this.updateFeels, this);
+
+    },
+
+    render: function(){
+
+      var form = $('#formTemp').html();
+      this.$el.html(form);
+
+    },
+
+    updateFeels: function(e){
+
+      // on click of update feelings button
+      e.preventDefault();
+
+      // take input values
+      // trim removes spaces before or after
+      var secret = $.trim( $('#secretID').val() );
+      var newHigh = $.trim( $('#highUpdate').val() );
+      var newLow = $.trim( $('#lowUpdate').val() );
+
+      // need to compare secretID (secret) to
+      // secret IDs in the collection and return
+      findID = App.entire_group.findWhere({sID : secret});
+
+      // need to set low and high properties
+      // to the new low and high
+      findID.set('low', newLow);
+      findID.set('high', newHigh);
+
+      // Append to feed
+      var newPost = new App.Models.Classmate({
+        name: findID.attributes.name,
+        low: findID.attributes.low,
+        high: findID.attributes.high,
+        avatar: findID.attributes.avatar
+      });
+      console.log(newPost);
+      App.feed_collection.add(newPost).save();
+
+      // updates to server
+      findID.save();
+      // Clears input form
+      $('#secretID, #highUpdate, #lowUpdate').val('');
+      // updates featured block
+      $('#featured').css('display', 'block');
+
+      $('.featuredImg').html(" <img src='" + findID.attributes.avatar + "' /> ")
+      $('.high').html(findID.attributes.high);
+      $('.low').html(findID.attributes.low);
+
+    }
+
+  }); // end of form
+
+  // Feed View
+  App.Views.FeedView = Backbone.View.extend({
+
+    el: '#feed',
+
+    events: {
+      'click #updateBtn': 'addToFeed',
+    },
+
+    initialize: function(){
+
+      this.render();
+      App.feed_collection.on('sync', this.render, this);
+
+    },
+
+    render: function(){
+
+      var feed = $('#feedTemp').html();
+      var renderFeed = _.template(feed);
+
+      // Clear our element
+      this.$el.empty();
+
+      // Binding self
+      var self = this;
+      // iterating through the entire_group
+      _.each(App.feed_collection.models, function(user){
+        self.$el.append(renderFeed(user.attributes));
+      });
+
+      // Take data and append to specific
+      // DOM element
+      $('#feedContainer').html(this.el);
+
+      return this;
+
+    },
+
+    addToFeed: function(){}
+
+  }); // end of feed view
+
+}()); // end of IIF
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 // Model Constructor is Classmate
 // Collection Constructor is Group :::::: entire_group is collection of classmates
 // View Constructor is ClassView :::::  -------------------------------------------------------------------------------------------------------------------------------------------------
-var findID;
-var uniqueID;
 
-// Brings down data from server
-entire_group.fetch().done(function() {
-  new ClassView({
-    // after fetching from server
-    // collection entire_group is populated
-    collection: entire_group
+(function(){
+
+  var findID;
+  var uniqueID;
+
+  // Brings down data from server for class
+  // and form views
+  App.entire_group.fetch().done(function() {
+    new App.Views.ClassView({});
+    new App.Views.FormView({});
   });
-});
-
-
-// On update feelings click
-$('#update').on('click', '#updateBtn', function(e){
-  // on click of update feelings button
-  e.preventDefault();
-  // take input values
-  // trim removes spaces before or after
-  var secret = $.trim( $('#secretID').val() );
-  var newHigh = $.trim( $('#highUpdate').val() );
-  var newLow = $.trim( $('#lowUpdate').val() );
-  // need to compare secretID (secret) to
-  // secret IDs in the collection and return
-  findID = entire_group.findWhere({sID : secret});
-  // need to set low and high properties
-  // to the new low and high
-  findID.set('low', newLow);
-  findID.set('high', newHigh);
-  // updates to server
-  findID.save();
-  // Clears input form
-  $('#secretID, #highUpdate, #lowUpdate').val('');
-});
-
-// On click of individual profiles
-// Populate the featured section
-$('.profileGrid').on('click', 'li', function() {
-  entire_group.fetch().done(function() {
-    new ClassView({
-        collection: entire_group
+  // Brings down data from server for
+  // the feed sidebar
+  App.feed_collection.fetch().done(function(){
+    new App.Views.FeedView({});
+  });
+  // for a butterfly to follow your cursor
+  $(document).ready(function(){
+  var follow = $('.follow').css({position: 'absolute'});
+  $(document).mousemove(function(e){
+    follow.css({
+      "top" : e.pageY + 5,
+      "left" : e.pageX + 5
+      });
     });
-    $('#featured').css('display', 'block');
-  }); // refreshes collection
-  var featuredImage = $(this).data('avatar');
-  var featuredHigh = $(this).data('high');
-  var featuredLow = $(this).data('low');
-  $('.featuredImg').html(" <img src='" + featuredImage + "' /> ")
-  $('.high').html(featuredHigh);
-  $('.low').html(featuredLow);
-});
+  });
+
+}()); // end of IIF
