@@ -39,12 +39,8 @@
       var id = $(e.currentTarget).attr('id');
 
       var feature = App.entire_group.get(id);
-
-      $('#featured').css('display', 'block');
-
-      $('.featuredImg').html(" <img src='" + feature.attributes.avatar + "' /> ")
-      $('.high').html(feature.attributes.high);
-      $('.low').html(feature.attributes.low);
+      
+      new App.Views.SingleView({id: feature});
 
     },
 
