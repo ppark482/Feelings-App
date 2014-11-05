@@ -1,5 +1,6 @@
 (function(){
-
+  // ClassView
+  // -------------------------------------------------------------------------------------- //
   App.Views.ClassView = Backbone.View.extend({
 
     tagName: 'ul',
@@ -50,48 +51,35 @@
   }); // end of classview
 
   // Form View
+  // -------------------------------------------------------------------------------------- //
   App.Views.FormView = Backbone.View.extend({
-
     el: '#inputForm',
-
     events: {
       'click #updateBtn': 'updateFeels',
     },
-
     initialize: function(){
-
       this.render();
       App.entire_group.on('sync', this.updateFeels, this);
-
     },
-
     render: function(){
-
       var form = $('#formTemp').html();
       this.$el.html(form);
-
     },
-
     updateFeels: function(e){
-
       // on click of update feelings button
       e.preventDefault();
-
       // take input values
       // trim removes spaces before or after
       var secret = $.trim( $('#secretID').val() );
       var newHigh = $.trim( $('#highUpdate').val() );
       var newLow = $.trim( $('#lowUpdate').val() );
-
       // need to compare secretID (secret) to
       // secret IDs in the collection and return
       findID = App.entire_group.findWhere({sID : secret});
-
       // need to set low and high properties
       // to the new low and high
       findID.set('low', newLow);
       findID.set('high', newHigh);
-
       // Append to feed
       var newPost = new App.Models.Classmate({
         name: findID.attributes.name,
@@ -99,25 +87,22 @@
         high: findID.attributes.high,
         avatar: findID.attributes.avatar
       });
-      console.log(newPost);
+      // console.log(newPost);
       App.feed_collection.add(newPost).save();
-
       // updates to server
       findID.save();
       // Clears input form
       $('#secretID, #highUpdate, #lowUpdate').val('');
       // updates featured block
-      $('#featured').css('display', 'block');
-
-      $('.featuredImg').html(" <img src='" + findID.attributes.avatar + "' /> ")
-      $('.high').html(findID.attributes.high);
-      $('.low').html(findID.attributes.low);
-
+      // $('#featured').css('display', 'block');
+      // $('.featuredImg').html(" <img src='" + findID.attributes.avatar + "' /> ")
+      // $('.high').html(findID.attributes.high);
+      // $('.low').html(findID.attributes.low);
+      new App.Views.SingleView({ 'id' : findID });
     }
-
   }); // end of form
-
   // Feed View
+  // -------------------------------------------------------------------------------------- //
   App.Views.FeedView = Backbone.View.extend({
 
     el: '#feed',
@@ -159,5 +144,33 @@
     addToFeed: function(){}
 
   }); // end of feed view
+
+  // Single View
+  // -------------------------------------------------------------------------------------- //
+  App.Views.SingleView = Backbone.View.extend({
+
+    el: '#featured',
+
+    template: _.template($('#featuredTemp').html()),
+
+    events: {
+
+    },
+
+    initialize: function(options) {
+      this.options = options;
+      console.log(options);
+      this.render();
+      App.entire_group.on('sync', this.render, this);
+    },
+
+    render: function () {
+      var self = this;
+      this.$el.empty();
+      this.$el.html(this.template(this.options.id.toJSON()));
+    }
+
+
+  }); // end of single view
 
 }()); // end of IIF

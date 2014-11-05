@@ -115,7 +115,7 @@ header {
   @include span-columns(12);
   margin-bottom: 40px;
   padding-bottom: 40px;
-  display: none;
+  /* display: none; */
   border-bottom: 4px solid black;
   transition: display .5s;
   h3 {

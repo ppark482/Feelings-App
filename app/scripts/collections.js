@@ -1,10 +1,10 @@
 (function(){
 
   App.Collections.Group = Backbone.Collection.extend({
-    
+
     model: App.Models.Classmate,
 
-    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'// server url,
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings5'// server url,
 
   });
 
@@ -12,7 +12,7 @@
 
     model: App.Models.Classmate,
 
-    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed'// server url,
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed5'// server url,
   });
 
 }());

@@ -27,6 +27,9 @@
             <!-- uncomment following line to have butterfly follow cursor -->
       <!-- <img class="follow" src="http://www.animatedimages.org/data/media/291/animated-butterfly-image-0208.gif" alt=""> -->
       <div class="container">
+        <h1>NoMore<span>Feels</span>.app</h1>
+        <h3 class="profile">CLICK FOR THE FEELINGS</h3>
+        <div class="profileGrid"></div>
         <header id="inputForm"></header>
         <div id="featured">
           <div class="featuredImg">
@@ -39,8 +42,7 @@
             <p class="low"></p>
           </div><!-- end of feelings -->
         </div> <!-- end of featured -->
-        <h3 class="profile">CLICK FOR THE FEELINGS</h3>
-        <div class="profileGrid"></div>
+
       </div> <!-- end of container -->
 
       <div class="feedContainer">
@@ -49,13 +51,13 @@
           <ul id="feed"></ul>
         </div>
       </div> <!-- end of feed container -->
-      
+
     </div> <!-- end of wrapper -->
 
 <!-- +++++++++++++++++++++++++++ START OF TEMPLATES +++++++++++++++++++++++++++ -->
 
     <script type="text/template" id="grid"> <!-- template for classmate grid -->
-      <a href="#featured">
+      <a href="#">
         <li id="<%= _id %>" class="individual"
         data-avatar="<%= avatar %>"
         data-name="<%= name %>"
@@ -79,7 +81,6 @@
     </script> <!-- end of featured box section -->
 
     <script type="text/template" id="formTemp"> <!-- template for input form -->
-      <h1>NoMore<span>Feels</span>.app</h1>
       <form action="" id="update">
         <input type="text" placeholder="Enter your ID" id="secretID">
         <input type="text" placeholder="HIGH OF THE WEEK" id="highUpdate">
@@ -118,6 +119,7 @@
         <script src="scripts/models.js"></script>
         <script src="scripts/collections.js"></script>
         <script src="scripts/view.js"></script>
+        <script src="scripts/router.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
