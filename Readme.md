@@ -1,5 +1,5 @@
 ## NoMoreFeels.app
-Build 1.2
+Build 1.3
 
 ##The Iron Yard Weekly Feelings App
 
