@@ -47,7 +47,7 @@
 
     },
 
-  });
+  }); // end of classview
 
   // Form View
   App.Views.FormView = Backbone.View.extend({
@@ -115,9 +115,9 @@
 
     }
 
-  });
+  }); // end of form
 
-  // Feed view
+  // Feed View
   App.Views.FeedView = Backbone.View.extend({
 
     el: '#feed',
@@ -158,6 +158,6 @@
 
     addToFeed: function(){}
 
-  });
+  }); // end of feed view
 
-}());
+}()); // end of IIF

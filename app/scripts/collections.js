@@ -1,7 +1,7 @@
 (function(){
 
   App.Collections.Group = Backbone.Collection.extend({
-
+    
     model: App.Models.Classmate,
 
     url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'// server url,
