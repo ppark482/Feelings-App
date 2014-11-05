@@ -23,11 +23,12 @@ img {
   max-width: 100%;
 }
 
-ul, li {
+ul, li, a {
   margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
+  color: inherit;
 }
 
 
@@ -39,20 +40,20 @@ ul, li {
   float: left;
 }
 
+h1 {
+  @include span-columns(12 of 12);
+  font-size: 2em;
+  margin-bottom: 40px;
+  span {
+    font-family: rubberneckregular;
+    color: HSLA(338, 95%, 56%, 1);
+  }
+}
+
 header {
   @include span-columns(12);
   margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 4px solid black;
-
-  h1 {
-    @include span-columns(12 of 12);
-    font-size: 2em;
-    span {
-      font-family: rubberneckregular;
-      color: HSLA(338, 95%, 56%, 1);
-    }
-  }
+  margin-top: 40px;
 
   form {
     width: 100%;
@@ -111,12 +112,14 @@ header {
   }
 }
 
-#featured {
+.featuredItem {
   @include span-columns(12);
   margin-bottom: 40px;
   padding-bottom: 40px;
+  padding-top: 40px;
   /* display: none; */
   border-bottom: 4px solid black;
+  border-top: 4px solid black;
   transition: display .5s;
   h3 {
     color: $pink;
@@ -139,7 +142,6 @@ h3.profile {
   margin: 0 0 40px 0;
   letter-spacing: 1px;
   color: $pink;
-  cursor: pointer;
 }
 
 .profileGrid {
