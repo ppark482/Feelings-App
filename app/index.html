@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <div></div>
+            <!-- uncomment following line to have butterfly follow cursor -->
       <!-- <img class="follow" src="http://www.animatedimages.org/data/media/291/animated-butterfly-image-0208.gif" alt=""> -->
       <div class="container">
         <header id="inputForm"></header>
@@ -48,11 +48,12 @@
         <div id="feedContainer">
           <ul id="feed"></ul>
         </div>
-      </div>
-
+      </div> <!-- end of feed container -->
     </div> <!-- end of wrapper -->
 
-    <script type="text/template" id="grid">
+<!-- +++++++++++++++++++++++++++ START OF TEMPLATES +++++++++++++++++++++++++++ -->
+
+    <script type="text/template" id="grid"> <!-- template for classmate grid -->
       <a href="#featured">
         <li id="<%= _id %>" class="individual"
         data-avatar="<%= avatar %>"
@@ -62,9 +63,9 @@
           <img id="<%= _id %>" src= '<%= avatar %>' />
         </li>
       </a>
-    </script>
+    </script> <!-- end of classmate grid -->
 
-    <script type="text/template" id="featuredTemp">
+    <script type="text/template" id="featuredTemp"> <!-- template for featured box section -->
       <div class="slowOpen">
         <img src=" <%= avatar %> ">
         <div class="feelings">
@@ -74,9 +75,9 @@
           <p class="low"><%= low %></p>
         </div> <!-- end of feelings -->
       </div>  <!-- end of slow open -->
-    </script>
+    </script> <!-- end of featured box section -->
 
-    <script type="text/template" id="formTemp">
+    <script type="text/template" id="formTemp"> <!-- template for input form -->
       <h1>NoMore<span>Feels</span>.app</h1>
       <form action="" id="update">
         <input type="text" placeholder="Enter your ID" id="secretID">
@@ -84,9 +85,9 @@
         <input type="text" placeholder="low of the week" id="lowUpdate">
         <button id="updateBtn">Update the Feelings</button>
       </form>
-    </script>
+    </script> <!-- end of input form -->
 
-    <script type="text/template" id="feedTemp">
+    <script type="text/template" id="feedTemp"> <!-- template for sidebar feed -->
         <li>
           <img src="<%= avatar %>">
           <h3><%= name %></h3>
@@ -101,7 +102,7 @@
             </p>
           </span>
         </li>
-    </script>
+    </script> <!-- end of sidebar feed -->
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
