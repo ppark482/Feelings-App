@@ -89,7 +89,7 @@
       // Remove oldest post from feed_collection
       // Removing oldest instance
       // Limited to 6
-      App.feed_collection.models[5].destroy();
+      App.feed_collection.models[0].destroy();
 
       // console.log(newPost);
       App.feed_collection.add(newPost).save();
