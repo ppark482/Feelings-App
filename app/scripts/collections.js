@@ -11,7 +11,7 @@
   App.Collections.Feed = Backbone.Collection.extend({
 
     model: App.Models.Classmate,
-
+    comparator: 'created',
     url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed5'// server url,
   });
 
