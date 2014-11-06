@@ -9,7 +9,8 @@
       sID: '', // secret id
       low: '',
       high: '',
-      avatar: ''
+      avatar: '',
+      gif: ''
     },
 
     idAttribute: '_id', // need because we are using MongoDB

@@ -16,7 +16,7 @@ Created by Richard Daniel and Paul Park
 
 
 ## Versions
-* Build 1.4 - Mobile Responsiveness Included - Backbone Routers Included
+* Build 1.4 - Mobile Responsiveness & Gif Option Added - Backbone Routers Included
 * Build 1.3 - CURRENT BUILD :: Added feed bar showing latest feelings update - Backbone Views Included
 * Build 1.2 - Revamped Styling - BackBone Models and Collections Included
 * Build 1.1 - Initial Deployed Build

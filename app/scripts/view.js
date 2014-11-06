@@ -69,6 +69,7 @@
       var secret = $.trim( $('#secretID').val() );
       var newHigh = $.trim( $('#highUpdate').val() );
       var newLow = $.trim( $('#lowUpdate').val() );
+      var newGif = $.trim( $('#gifUpdate').val() );
       // need to compare secretID (secret) to
       // secret IDs in the collection and return
       findID = App.entire_group.findWhere({sID : secret});
@@ -76,12 +77,14 @@
       // to the new low and high
       findID.set('low', newLow);
       findID.set('high', newHigh);
+      findID.set('gif', newGif);
       // Append to feed
       var newPost = new App.Models.Classmate({
         name: findID.attributes.name,
         low: findID.attributes.low,
         high: findID.attributes.high,
-        avatar: findID.attributes.avatar
+        avatar: findID.attributes.avatar,
+        gif: findID.attributes.gif,
       });
       // Adds the time created to the model
       var cur_time = $.now();
@@ -98,7 +101,7 @@
       // updates to server
       findID.save();
       // Clears input form
-      $('#secretID, #highUpdate, #lowUpdate').val('');
+      $('#secretID, #highUpdate, #lowUpdate, #gifUpdate').val('');
       // updates featured block
       new App.Views.SingleView({ 'id' : findID });
     }

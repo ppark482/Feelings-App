@@ -66,6 +66,10 @@
           <p class="high"><%= high %></p>
           <h3>LOW OF THE WEEK</h3>
           <p class="low"><%= low %></p>
+          <% if(gif !== '') { %>
+            <h3>GIF OF THE WEEK</h3>
+            <img class="gif" src=" <%= gif %> " alt="">
+          <% } %>
         </div> <!-- end of feelings -->
       </div>  <!-- end of slow open -->
     </script> <!-- end of featured box section -->
@@ -75,6 +79,7 @@
         <input type="text" placeholder="Enter your ID" id="secretID">
         <input type="text" placeholder="HIGH OF THE WEEK" id="highUpdate">
         <input type="text" placeholder="low of the week" id="lowUpdate">
+        <input type="text" placeholder="Gif of Your Overall Week" id="gifUpdate">
         <button id="updateBtn">Update the Feelings</button>
       </form>
     </script> <!-- end of input form -->
