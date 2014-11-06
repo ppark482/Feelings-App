@@ -36,12 +36,14 @@ ul, li, a {
 
 .container {
   @include outer-container;
+  padding: 0 16px;
   max-width: 66%;
   float: left;
 }
 
 h1 {
   @include span-columns(12 of 12);
+  text-align: center;
   font-size: 2em;
   margin-bottom: 40px;
   span {
@@ -177,7 +179,7 @@ h3.profile {
 .feedContainer {
   @include outer-container;
   float: right;
-  width: 30%;
+  width: 260px;
   padding: 20px;
   background-color: black;
   color: white;
@@ -193,7 +195,6 @@ h3.profile {
 
   li {
     @include span-columns(12);
-    position: relative;
     margin-bottom: 25px;
     padding-top: 15px;
     padding-bottom: 20px;
@@ -207,11 +208,8 @@ h3.profile {
     filter: sepia(1);
   }
 
-  .hover {
-    @include span-columns(9 of 12);
-  }
-
   h3 {
+    @include span-columns(9 of 12);
     text-align: left;
     font-size: 1em;
     padding: 18px 0px;
@@ -220,6 +218,7 @@ h3.profile {
   }
 
   p {
+    @include span-columns(12 of 12);
     text-align: left;
     font-size: .8em;
   }
@@ -227,4 +226,19 @@ h3.profile {
 
 #feedHigh, #feedLow {
   color: $pink;
+}
+
+@media (max-width: 800px){
+
+  .container {
+    max-width: 100%;
+  }
+
+  .feedContainer {
+    width: 100%;
+  }
+
+  #feed p {
+    @include span-columns(9 of 12);
+  }
 }
