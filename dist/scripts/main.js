@@ -2,6 +2,8 @@ window.App = {};
 App.Models = {};
 App.Collections = {};
 App.Views = {};
+App.Routers = {};
+
 (function(){
 
   App.Models.Classmate = Backbone.Model.extend({
@@ -13,7 +15,8 @@ App.Views = {};
       sID: '', // secret id
       low: '',
       high: '',
-      avatar: ''
+      avatar: '',
+      gif: ''
     },
 
     idAttribute: '_id', // need because we are using MongoDB
@@ -27,18 +30,18 @@ App.Views = {};
 (function(){
 
   App.Collections.Group = Backbone.Collection.extend({
-    
+
     model: App.Models.Classmate,
 
-    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'// server url,
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings5'// server url,
 
   });
 
   App.Collections.Feed = Backbone.Collection.extend({
 
     model: App.Models.Classmate,
-
-    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed'// server url,
+    comparator: 'created',
+    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed5'// server url,
   });
 
 }());
@@ -194,7 +197,8 @@ App.feed_collection = new App.Collections.Feed ();
 DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE */
 
 (function(){
-
+  // ClassView
+  // -------------------------------------------------------------------------------------- //
   App.Views.ClassView = Backbone.View.extend({
 
     tagName: 'ul',
@@ -234,85 +238,74 @@ DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DEL
 
       var feature = App.entire_group.get(id);
 
-      $('#featured').css('display', 'block');
-
-      $('.featuredImg').html(" <img src='" + feature.attributes.avatar + "' /> ")
-      $('.high').html(feature.attributes.high);
-      $('.low').html(feature.attributes.low);
+      new App.Views.SingleView({id: feature});
 
     },
 
   }); // end of classview
 
   // Form View
+  // -------------------------------------------------------------------------------------- //
   App.Views.FormView = Backbone.View.extend({
-
     el: '#inputForm',
-
     events: {
       'click #updateBtn': 'updateFeels',
     },
-
     initialize: function(){
-
       this.render();
       App.entire_group.on('sync', this.updateFeels, this);
-
     },
-
     render: function(){
-
       var form = $('#formTemp').html();
       this.$el.html(form);
-
     },
-
     updateFeels: function(e){
-
       // on click of update feelings button
       e.preventDefault();
-
       // take input values
       // trim removes spaces before or after
       var secret = $.trim( $('#secretID').val() );
       var newHigh = $.trim( $('#highUpdate').val() );
       var newLow = $.trim( $('#lowUpdate').val() );
-
+      var newGif = $.trim( $('#gifUpdate').val() );
       // need to compare secretID (secret) to
       // secret IDs in the collection and return
       findID = App.entire_group.findWhere({sID : secret});
-
       // need to set low and high properties
       // to the new low and high
       findID.set('low', newLow);
       findID.set('high', newHigh);
-
+      findID.set('gif', newGif);
       // Append to feed
       var newPost = new App.Models.Classmate({
         name: findID.attributes.name,
         low: findID.attributes.low,
         high: findID.attributes.high,
-        avatar: findID.attributes.avatar
+        avatar: findID.attributes.avatar,
+        gif: findID.attributes.gif,
       });
-      console.log(newPost);
+      // Adds the time created to the model
+      var cur_time = $.now();
+      newPost.set({ created: cur_time })
+      // Remove oldest post from feed_collection
+      // Removing oldest instance
+      // Limited to 6
+      App.feed_collection.models[0].destroy();
+
+      // console.log(newPost);
       App.feed_collection.add(newPost).save();
+
 
       // updates to server
       findID.save();
       // Clears input form
-      $('#secretID, #highUpdate, #lowUpdate').val('');
+      $('#secretID, #highUpdate, #lowUpdate, #gifUpdate').val('');
       // updates featured block
-      $('#featured').css('display', 'block');
-
-      $('.featuredImg').html(" <img src='" + findID.attributes.avatar + "' /> ")
-      $('.high').html(findID.attributes.high);
-      $('.low').html(findID.attributes.low);
-
+      new App.Views.SingleView({ 'id' : findID });
     }
-
   }); // end of form
-
   // Feed View
+  // -------------------------------------------------------------------------------------- //
   App.Views.FeedView = Backbone.View.extend({
 
     el: '#feed',
@@ -324,7 +317,7 @@ DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DEL
     initialize: function(){
 
       this.render();
-      App.feed_collection.on('sync', this.render, this);
+      App.feed_collection.on('change', this.render, this);
 
     },
 
@@ -340,7 +333,7 @@ DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DEL
       var self = this;
       // iterating through the entire_group
       _.each(App.feed_collection.models, function(user){
-        self.$el.append(renderFeed(user.attributes));
+        self.$el.prepend(renderFeed(user.attributes));
       });
 
       // Take data and append to specific
@@ -355,7 +348,77 @@ DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DEL
 
   }); // end of feed view
 
+  // Single View
+  // -------------------------------------------------------------------------------------- //
+  App.Views.SingleView = Backbone.View.extend({
+
+    el: '#featured',
+
+    template: _.template($('#featuredTemp').html()),
+
+    events: {
+
+    },
+
+    initialize: function(options) {
+      this.options = options;
+      console.log(options);
+      this.render();
+      App.entire_group.on('sync', this.render, this);
+    },
+
+    render: function () {
+      var self = this;
+      this.$el.empty();
+      this.$el.html(this.template(this.options.id.toJSON()));
+    }
+
+
+  }); // end of single view
+
 }()); // end of IIF
+
+(function(){
+
+  App.Routers.AppRouter = Backbone.Router.extend({
+
+    initialize: function() {
+      Backbone.history.start();
+      console.log('router loaded');
+    },
+
+    routes:{
+      '' : 'home',
+      'featuredItem/:id' : 'featuredItem'
+    },
+
+    home: function() {
+      // Calls each View for the page
+      new App.Views.ClassView({ collection: App.entire_group });
+      new App.Views.FormView({});
+      new App.Views.FeedView({ collection: App.feed_collection });
+    },
+
+    featuredItem: function(id) {
+
+      var f = App.entire_group.get(id)
+      // Instantiates Individual's Profile View
+      new App.Views.SingleView({id: f});
+      new App.Views.ClassView({ collection: App.entire_group });
+      new App.Views.FeedView({ collection: App.feed_collection });
+
+      // Has "featured" box with individual
+      // avatar, name, hi, lo, eventually
+      // gif and video
+
+      // Grid is still located on the bottom
+    }
+
+
+  });
+
+
+}());
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 // Model Constructor is Classmate
@@ -370,14 +433,17 @@ DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DEL
   // Brings down data from server for class
   // and form views
   App.entire_group.fetch().done(function() {
-    new App.Views.ClassView({});
-    new App.Views.FormView({});
+    // Brings down data from server for
+    // the feed sidebar
+    App.feed_collection.fetch().done(function(){
+      // Instantiates Router after Fetching
+      // Data from both collections
+      App.router = new App.Routers.AppRouter;
+    });
+
   });
-  // Brings down data from server for
-  // the feed sidebar
-  App.feed_collection.fetch().done(function(){
-    new App.Views.FeedView({});
-  });
+
+
   // for a butterfly to follow your cursor
   $(document).ready(function(){
   var follow = $('.follow').css({position: 'absolute'});
