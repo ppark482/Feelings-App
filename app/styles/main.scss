@@ -128,10 +128,14 @@ header {
     color: $pink;
   }
 
-  img {
+  img { /* Avatar Image */
     @include span-columns(4 of 12);
     border-radius: 50%;
     border: 4px solid black;
+  }
+  .gif {
+    border-radius: 0;
+    width: 100%;
   }
 
   .feelings {
@@ -139,6 +143,7 @@ header {
     padding-left: 5%;
   }
 }
+
 
 h3.profile {
   text-align: center;
