@@ -83,7 +83,9 @@
         high: findID.attributes.high,
         avatar: findID.attributes.avatar
       });
-
+      // Adds the time created to the model
+      var cur_time = $.now();
+      newPost.set({ created: cur_time })
       // Remove oldest post from feed_collection
       // Removing oldest instance
       // Limited to 6
