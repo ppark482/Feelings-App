@@ -3,6 +3,7 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 @import '_inputform.scss';
 @import '_classmates.scss';
+@import 'fonts';
 
 $pink: rgb(250, 36, 114);
 
@@ -248,5 +249,22 @@ h3.profile {
     @include span-columns(9 of 12);
     @include omega();
     float: right;
+  }
+}
+
+@media (max-width: 500px){
+
+  h1 {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 400px){
+
+  header {
+    button {
+      @include span-columns(12 of 12);
+      @include shift(0);
+    }
   }
 }
