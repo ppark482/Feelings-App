@@ -94,9 +94,7 @@
       // Limited to 6
       App.feed_collection.models[0].destroy();
 
-      // console.log(newPost);
       App.feed_collection.add(newPost).save();
-
 
       // updates to server
       findID.save();
@@ -164,7 +162,6 @@
 
     initialize: function(options) {
       this.options = options;
-      console.log(options);
       this.render();
       App.entire_group.on('sync', this.render, this);
     },

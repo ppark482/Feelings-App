@@ -12,7 +12,7 @@ Created by Richard Daniel and Paul Park
 * Underscore.js
 * jQuery
 * Bourbon / Neat
-* SASS / CSS Animate
+* SASS
 
 
 ## Versions
