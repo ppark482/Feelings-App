@@ -202,6 +202,7 @@ h3.profile {
 
   img {
     @include span-columns(3 of 12);
+    margin-bottom: 16px;
     border-radius: 50%;
     border: 2px solid white;
     filter: sepia(1);
@@ -211,7 +212,7 @@ h3.profile {
     @include span-columns(9 of 12);
     text-align: left;
     font-size: 1em;
-    padding: 18px 0px;
+    padding: 18px 0 18px 8px;
     margin: 0px;
     transition: opacity 1s, padding 1s;
   }
@@ -220,6 +221,8 @@ h3.profile {
     @include span-columns(12 of 12);
     text-align: left;
     font-size: .8em;
+    margin-top: 0;
+    padding-left: 8px;
   }
 }
 
@@ -237,7 +240,13 @@ h3.profile {
     width: 100%;
   }
 
+  #feed h3 {
+    padding: 10px 0 14px 8px;
+  }
+
   #feed p {
     @include span-columns(9 of 12);
+    @include omega();
+    float: right;
   }
 }
