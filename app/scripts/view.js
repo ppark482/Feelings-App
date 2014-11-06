@@ -114,7 +114,7 @@
     initialize: function(){
 
       this.render();
-      App.entire_group.on('change', this.updateFeels, this);
+      App.feed_collection.on('change', this.render, this);
 
     },
 
@@ -130,7 +130,7 @@
       var self = this;
       // iterating through the entire_group
       _.each(App.feed_collection.models, function(user){
-        self.$el.append(renderFeed(user.attributes));
+        self.$el.prepend(renderFeed(user.attributes));
       });
 
       // Take data and append to specific
