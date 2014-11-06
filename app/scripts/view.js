@@ -39,7 +39,7 @@
       var id = $(e.currentTarget).attr('id');
 
       var feature = App.entire_group.get(id);
-      
+
       new App.Views.SingleView({id: feature});
 
     },
@@ -83,17 +83,21 @@
         high: findID.attributes.high,
         avatar: findID.attributes.avatar
       });
+
+      // Remove oldest post from feed_collection
+      // Removing oldest instance
+      // Limited to 6
+      App.feed_collection.models[5].destroy();
+
       // console.log(newPost);
       App.feed_collection.add(newPost).save();
+
+
       // updates to server
       findID.save();
       // Clears input form
       $('#secretID, #highUpdate, #lowUpdate').val('');
       // updates featured block
-      // $('#featured').css('display', 'block');
-      // $('.featuredImg').html(" <img src='" + findID.attributes.avatar + "' /> ")
-      // $('.high').html(findID.attributes.high);
-      // $('.low').html(findID.attributes.low);
       new App.Views.SingleView({ 'id' : findID });
     }
   }); // end of form
@@ -110,7 +114,7 @@
     initialize: function(){
 
       this.render();
-      App.feed_collection.listenTo(this, 'sync', this.render);
+      App.entire_group.on('change', this.updateFeels, this);
 
     },
 
@@ -121,11 +125,6 @@
 
       // Clear our element
       this.$el.empty();
-
-      // Removing oldest instance
-      var kill = App.feed_collection.pop();
-      var killID = kill.id;
-      App.feed_collection.remove(killID);
 
       // Binding self
       var self = this;
