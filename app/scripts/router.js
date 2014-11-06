@@ -4,7 +4,6 @@
 
     initialize: function() {
       Backbone.history.start();
-      console.log('router loaded');
     },
 
     routes:{

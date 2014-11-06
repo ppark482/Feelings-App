@@ -384,7 +384,6 @@ DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DEL
 
     initialize: function() {
       Backbone.history.start();
-      console.log('router loaded');
     },
 
     routes:{
