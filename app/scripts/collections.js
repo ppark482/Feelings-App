@@ -1,18 +1,16 @@
 (function(){
 
-  App.Collections.Group = Backbone.Collection.extend({
+  App.Collections.Group = Parse.Collection.extend({
 
-    model: App.Models.Classmate,
-
-    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'// server url,
+    model: App.Models.Classmate
 
   });
 
-  App.Collections.Feed = Backbone.Collection.extend({
+  App.Collections.Feed = Parse.Collection.extend({
 
     model: App.Models.Classmate,
-    comparator: 'created',
-    url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelingsFeed5'// server url,
+    comparator: 'created'
+    
   });
 
 }());

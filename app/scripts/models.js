@@ -1,6 +1,8 @@
 (function(){
 
-  App.Models.Classmate = Backbone.Model.extend({
+  App.Models.Classmate = Parse.Object.extend({
+
+    className: 'classmates',
 
     defaults: {
 
@@ -13,7 +15,7 @@
       gif: ''
     },
 
-    idAttribute: '_id', // need because we are using MongoDB
+    idAttribute: 'objectId', // need because we are using MongoDB
 
     initialize: function() {}
 

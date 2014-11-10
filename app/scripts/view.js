@@ -1,7 +1,7 @@
 (function(){
   // ClassView
   // -------------------------------------------------------------------------------------- //
-  App.Views.ClassView = Backbone.View.extend({
+  App.Views.ClassView = Parse.View.extend({
 
     tagName: 'ul',
     className: 'profile',
@@ -48,7 +48,7 @@
 
   // Form View
   // -------------------------------------------------------------------------------------- //
-  App.Views.FormView = Backbone.View.extend({
+  App.Views.FormView = Parse.View.extend({
     el: '#inputForm',
     events: {
       'click #updateBtn': 'updateFeels',
@@ -108,7 +108,7 @@
   }); // end of form
   // Feed View
   // -------------------------------------------------------------------------------------- //
-  App.Views.FeedView = Backbone.View.extend({
+  App.Views.FeedView = Parse.View.extend({
 
     el: '#feed',
 
@@ -163,7 +163,7 @@
 
   // Single View
   // -------------------------------------------------------------------------------------- //
-  App.Views.SingleView = Backbone.View.extend({
+  App.Views.SingleView = Parse.View.extend({
 
     el: '#featured',
 

@@ -1,3 +1,5 @@
+Parse.initialize("58ZP3J63tl8ipDA6OwYGNFdlgwicXF3Nn6un5vAa", "nUMwyPsv9aDXyKdH2cwdZ6tRGaQYq7BtRpoQEV2O");
+
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 // Model Constructor is Classmate
 // Collection Constructor is Group :::::: entire_group is collection of classmates
