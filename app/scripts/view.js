@@ -113,7 +113,7 @@
     el: '#feed',
 
     events: {
-      'click #updateBtn': 'addToFeed',
+      'click .feedItem' : 'goToFeatured'
     },
 
     initialize: function(){
@@ -146,7 +146,18 @@
 
     },
 
-    addToFeed: function(){}
+    goToFeatured: function(e){
+      var id = $(e.currentTarget).attr('id');
+
+      var feature = App.feed_collection.get(id);
+      console.log(feature);
+
+      var nameFromFeed = feature.attributes.name;
+      var groupMate = App.entire_group.findWhere({name : nameFromFeed});
+      var groupMateID = groupMate.get(groupMate.attributes._id);
+      console.log(groupMateID);
+      new App.Views.SingleView({id: id});
+    }
 
   }); // end of feed view
 
@@ -164,7 +175,7 @@
 
     initialize: function(options) {
       this.options = options;
-      console.log(options);
+      console.log(this.options);
       this.render();
       App.entire_group.on('sync', this.render, this);
     },

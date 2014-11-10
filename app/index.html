@@ -85,7 +85,7 @@
     </script> <!-- end of input form -->
 
     <script type="text/template" id="feedTemp"> <!-- template for sidebar feed -->
-        <li>
+        <a href="#/featuredItem/<%= _id %>"><li id="<%= _id %>" class="feedItem">
           <img src="<%= avatar %>">
           <h3><%= name %></h3>
           <p>
@@ -96,7 +96,7 @@
             <span id="feedLow">LOW:</span>
             <%= low %>
           </p>
-        </li>
+        </li></a>
     </script> <!-- end of sidebar feed -->
 
     <!-- build:js scripts/vendor.js -->
