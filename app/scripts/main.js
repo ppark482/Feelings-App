@@ -1,4 +1,4 @@
-Parse.initialize("58ZP3J63tl8ipDA6OwYGNFdlgwicXF3Nn6un5vAa", "nUMwyPsv9aDXyKdH2cwdZ6tRGaQYq7BtRpoQEV2O");
+Parse.initialize("sMuDyvqMkLFAEzMWZzCX7g63U7qZzqMeYAzAmeog", "TZdAQaFVeGULBGTBFc0yDCpMl23N4JDOgka1j3Dt");
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 // Model Constructor is Classmate
