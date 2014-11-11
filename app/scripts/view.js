@@ -75,11 +75,11 @@
       var query = new Parse.Query(App.Models.Classmate);
       query.equalTo('sID', secret);
       var findID = query.find().then(function(object) {
-        object.save('low', newLow);
+        object.set('high', newHigh );
+        object.save();
         console.log(object);
       });
       // var findID = App.feed_collection.findWhere({sID : secret});
-      console.log(findID);
       // need to set low and high properties
       // to the new low and high
       // findID.set('low', newLow);
