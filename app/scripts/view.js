@@ -23,7 +23,6 @@
       var self = this;
       // iterating through the entire_group
       _.each(App.entire_group.models, function(user){
-        console.log(user);
         self.$el.append(renderGrid(user.toJSON()));
       });
 
@@ -73,31 +72,39 @@
       var newGif = $.trim( $('#gifUpdate').val() );
       // need to compare secretID (secret) to
       // secret IDs in the collection and return
-      findID = App.entire_group.findWhere({sID : secret});
+
+      
+
+
+      // var findID = App.entire_group.findWhere({sID : secret});
       // need to set low and high properties
       // to the new low and high
       findID.set('low', newLow);
       findID.set('high', newHigh);
       findID.set('gif', newGif);
+      findID.set('gif', newGif);
+
       // Append to feed
-      var newPost = new App.Models.Classmate({
-        name: findID.attributes.name,
-        low: findID.attributes.low,
-        high: findID.attributes.high,
-        avatar: findID.attributes.avatar,
-        gif: findID.attributes.gif,
-      });
-      // Adds the time created to the model
-      var cur_time = $.now();
-      newPost.set({ created: cur_time })
+      // var newPost = new App.Models.Classmate({
+      //   name: findID.attributes.name,
+      //   low: findID.attributes.low,
+      //   high: findID.attributes.high,
+      //   avatar: findID.attributes.avatar,
+      //   // Adds the time created to the model
+      //   created: $.now()
+      // });
+
       // Remove oldest post from feed_collection
       // Removing oldest instance
       // Limited to 6
       App.feed_collection.models[0].destroy();
 
-      // console.log(newPost);
-      App.feed_collection.add(newPost).save();
-
+      // Save post to server, then add to collection
+      newPost.save(null, {
+        success: function(){
+          App.feed_collection.add(newPost)
+        }
+      });
 
       // updates to server
       findID.save();
@@ -176,7 +183,6 @@
 
     initialize: function(options) {
       this.options = options;
-      console.log(this.options);
       this.render();
       App.entire_group.on('sync', this.render, this);
     },

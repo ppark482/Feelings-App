@@ -13,11 +13,9 @@ Parse.initialize("sMuDyvqMkLFAEzMWZzCX7g63U7qZzqMeYAzAmeog", "TZdAQaFVeGULBGTBFc
   // Brings down data from server for class
   // and form views
   App.entire_group.fetch().done(function() {
-    console.log('fetched');
     // Brings down data from server for
     // the feed sidebar
     App.feed_collection.fetch().done(function(){
-      console.log('fetched');
       // Instantiates Router after Fetching
       // Data from both collections
       App.router = new App.Routers.AppRouter;

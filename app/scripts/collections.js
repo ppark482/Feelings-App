@@ -96,8 +96,7 @@ var richard = new App.Models.Classmate ({
   name: 'Richard Daniel',
   class: 'Front End Hackorz',
   sID: 'ri05', // secret id
-  avatar: 'https://avatars3.githubusercontent.com/u/4088267?v=2&s=460',
-  property: 'testing'
+  avatar: 'https://avatars3.githubusercontent.com/u/4088267?v=2&s=460'
 });
 var tim = new App.Models.Classmate ({
   name: 'Tim Whitacre',
@@ -145,11 +144,11 @@ var laura = new App.Models.Classmate ({
 
 // [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]
 
-// var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
+var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
 
-App.entire_group = new App.Collections.Group ();
+App.entire_group = new App.Collections.Group();
 
-App.feed_collection = new App.Collections.Feed ();
+App.feed_collection = new App.Collections.Feed();
 
 
 /* DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE DO NOT DELETE
