@@ -8,9 +8,8 @@
 
   App.Collections.Feed = Parse.Collection.extend({
 
-    model: App.Models.Classmate,
-    comparator: 'created'
-    
+    model: App.Models.Classmate
+
   });
 
 }());
@@ -146,7 +145,7 @@ var laura = new App.Models.Classmate ({
 
 // [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy, placeholder1, placeholder2, placeholder3]
 
-var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
+// var groupArray = [andrew, chelsea, chase, dean, emory, john, joanna, maggie, matthew, max, mike, paul, richard, tim, thomas, victoria, wendy];
 
 App.entire_group = new App.Collections.Group ();
 

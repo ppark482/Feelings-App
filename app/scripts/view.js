@@ -23,7 +23,8 @@
       var self = this;
       // iterating through the entire_group
       _.each(App.entire_group.models, function(user){
-        self.$el.append(renderGrid(user.attributes));
+        console.log(user);
+        self.$el.append(renderGrid(user.toJSON()));
       });
 
       // Take data and append to specific
@@ -135,7 +136,7 @@
       var self = this;
       // iterating through the entire_group
       _.each(App.feed_collection.models, function(user){
-        self.$el.prepend(renderFeed(user.attributes));
+        self.$el.prepend(renderFeed(user.toJSON()));
       });
 
       // Take data and append to specific

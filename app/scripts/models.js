@@ -4,6 +4,8 @@
 
     className: 'classmates',
 
+    idAttribute: 'objectId',
+
     defaults: {
 
       name: '',
@@ -14,8 +16,6 @@
       avatar: '',
       gif: ''
     },
-
-    idAttribute: 'objectId', // need because we are using MongoDB
 
     initialize: function() {}
 
