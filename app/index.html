@@ -62,12 +62,16 @@
       <div class="featuredItem">
         <img src=" <%= avatar %> ">
         <div class="feelings">
-          <h3>HIGH OF THE WEEK</h3>
-          <p class="high"><%= high %></p>
-          <h3>LOW OF THE WEEK</h3>
-          <p class="low"><%= low %></p>
           <% if(gif !== '') { %>
-            <h3>GIF OF THE WEEK</h3>
+            <h3> NEW HIGH OF THE WEEK</h3>
+            <p class="high"><%= high %></p>
+          <% } %>
+          <% if(gif !== '') { %>
+            <h3>NEW LOW OF THE WEEK</h3>
+            <p class="low"><%= low %></p>
+          <% } %>
+          <% if(gif !== '') { %>
+            <h3>NEW GIF OF THE WEEK</h3>
             <img class="gif" src=" <%= gif %> " alt="">
           <% } %>
         </div> <!-- end of feelings -->

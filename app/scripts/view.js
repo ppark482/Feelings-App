@@ -72,17 +72,20 @@
       var newGif = $.trim( $('#gifUpdate').val() );
       // need to compare secretID (secret) to
       // secret IDs in the collection and return
-
-
-
-
-      var findID = App.entire_group.findWhere({sID : secret});
+      var query = new Parse.Query(App.Models.Classmate);
+      query.equalTo('sID', secret);
+      var findID = query.find().then(function(object) {
+        object.save('low', newLow);
+        console.log(object);
+      });
+      // var findID = App.feed_collection.findWhere({sID : secret});
+      console.log(findID);
       // need to set low and high properties
       // to the new low and high
-      findID.set('low', newLow);
-      findID.set('high', newHigh);
-      findID.set('gif', newGif);
-      findID.set('gif', newGif);
+      // findID.set('low', newLow);
+      // findID.set('high', newHigh);
+      // findID.set('gif', newGif);
+      // findID.set('gif', newGif);
 
       // Append to feed
       // var newPost = new App.Models.Classmate({
@@ -97,21 +100,21 @@
       // Remove oldest post from feed_collection
       // Removing oldest instance
       // Limited to 6
-      App.feed_collection.models[0].destroy();
+      // App.feed_collection.models[0].destroy();
 
       // Save post to server, then add to collection
-      newPost.save(null, {
-        success: function(){
-          App.feed_collection.add(newPost)
-        }
-      });
+      // newPost.save(null, {
+      //   success: function(){
+      //     App.feed_collection.add(newPost)
+      //   }
+      // });
 
       // updates to server
-      findID.save();
+      // findID.save();
       // Clears input form
-      $('#secretID, #highUpdate, #lowUpdate, #gifUpdate').val('');
+      // $('#secretID, #highUpdate, #lowUpdate, #gifUpdate').val('');
       // updates featured block
-      new App.Views.SingleView({ 'id' : findID });
+      // new App.Views.SingleView({ 'id' : findID });
     }
   }); // end of form
   // Feed View
