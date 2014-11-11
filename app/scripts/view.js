@@ -73,10 +73,10 @@
       // need to compare secretID (secret) to
       // secret IDs in the collection and return
 
-      
 
 
-      // var findID = App.entire_group.findWhere({sID : secret});
+
+      var findID = App.entire_group.findWhere({sID : secret});
       // need to set low and high properties
       // to the new low and high
       findID.set('low', newLow);
