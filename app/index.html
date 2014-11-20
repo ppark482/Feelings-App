@@ -21,26 +21,14 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-app="TheFeelings">
     <div class="wrapper">
             <!-- uncomment following line to have butterfly follow cursor -->
       <!-- <img class="follow" src="http://www.animatedimages.org/data/media/291/animated-butterfly-image-0208.gif" alt=""> -->
-      <div class="container">
-        <a href=""><h1>NoMore<span>Feels</span>.app</h1></a>
-        <div id="featured"></div> <!-- end of featured -->
-        <h3 class="profile">CLICK FOR THE FEELINGS</h3>
-        <div class="profileGrid"></div>
-        <header id="inputForm"></header>
-
-      </div> <!-- end of container -->
-
-      <div class="feedContainer">
-        <h2>Feed-O-Feelsies</h2>
-        <div id="feedContainer">
-          <ul id="feed"></ul>
-        </div>
-      </div> <!-- end of feed container -->
-
+      <a href=""><h1>NoMore<span>Feels</span>.app</h1></a>
+      <div id="featured"></div> <!-- end of featured -->
+      <h3 class="profile">CLICK FOR THE FEELINGS</h3>
+      <div ng-view></div>
     </div> <!-- end of wrapper -->
 
 <!-- +++++++++++++++++++++++++++ START OF TEMPLATES +++++++++++++++++++++++++++ -->
@@ -103,16 +91,15 @@
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
     <script src="../bower_components/backbone/backbone.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
-        <script src="scripts/alphaLoad.js"></script>
-        <script src="scripts/models.js"></script>
-        <script src="scripts/collections.js"></script>
-        <script src="scripts/view.js"></script>
-        <script src="scripts/router.js"></script>
         <script src="scripts/main.js"></script>
+        <script src="scripts/controllers/main_controller.js"></script>
+        <script src="scripts/feel_factory.js"></script>
         <!-- endbuild -->
 </body>
 </html>

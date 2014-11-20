@@ -1,0 +1,23 @@
+<div class="profileGrid">
+	<ul class="profile">
+		<a ng-repeat="person in entireGroup" href="#/featuredDude/{{ person._id }}">
+		  <li id="{{ person._id }}" class="individual"
+		  data-avatar="{{ person.avatar }}"
+		  data-name="{{ person.name }}"
+		  data-high="{{ person.high }}"
+		  data-low="{{ person.low }}">
+		    <img id="{{ person._id }}" src= '{{ person.avatar }}' />
+		  </li>
+		</a>
+	</ul>
+</div>
+
+<header id="inputForm">
+	<form action="" id="update" ng-submit="updateFeels(feels)">
+    <input type="text" ng-model="feels.sID" placeholder="Enter your ID" id="secretID">
+    <input type="text" ng-model="feels.high" placeholder="HIGH OF THE WEEK" id="highUpdate">
+    <input type="text" ng-model="feels.low" placeholder="low of the week" id="lowUpdate">
+    <input type="text" ng-model="feels.gif" placeholder="Gif URL of Your Overall Week" id="gifUpdate">
+    <button id="updateBtn">Update the Feelings</button>
+   </form>
+</header>
