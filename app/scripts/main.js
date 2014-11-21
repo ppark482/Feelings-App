@@ -3,7 +3,7 @@
 	var ang = angular.module('TheFeelings', ['ngRoute']); // set the module
 
 	ang.constant({
-		url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6'
+		url: 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6/'
 	});
 
 	ang.config( function ($routeProvider) {
