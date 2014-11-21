@@ -4,7 +4,7 @@
 
 	ang.config( function ($routeProvider, RestangularProvider) {
 
-		RestangularProvider.setBaseUrl('http://tiy-atl-fe-server.herokuapp.com/collections/feelings6/');
+		RestangularProvider.setBaseUrl('http://tiy-atl-fe-server.herokuapp.com/collections/');
 
 		$routeProvider.when('/', {
 			templateUrl: 'templates/grid_template.html',

@@ -4,19 +4,24 @@
 
 		.factory('FeelFactory', ['$rootScope', '$http', 'Restangular', function($rootScope, $http, Restangular) {
 
-			var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6/';
+			var feelsBase = Restangular.all('feelings6');
 
 			function getClassmates() {
-				return $http.get(url);
+				// return $http.get(url);
+				return feelsBase.getList();
 			}
 
 			function getClassmate(id)  {
-				return $http.get(url + id);
+				// return $http.get(url + id);
+				return feelsBase.get(id);
 			}
 
 			function updateFeels(feels) {
-				$http.put(url + thisUser.id, { high: feels.high, low: feels.low, gif: feels.gif }).success( function () {
-					$rootScope.$broadcast('feels:updated');
+				// $http.put(url + thisUser.id, { high: feels.high, low: feels.low, gif: feels.gif }).success( function () {
+				// 	$rootScope.$broadcast('feels:updated');
+				// });
+				feelsBase.post(feels).then( function() {
+					$rootScope.$broadcast('feel:added');
 				});
 			}
 
