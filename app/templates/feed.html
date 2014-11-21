@@ -1,0 +1,17 @@
+<h2>Feed-O-Feelsies</h2>
+<div id="feedContainer" ng-controller="FeedController">
+	<ul id="feed">
+		<li ng-repeat="post in feed">
+			<img src="{{ post.avatar }}">
+			<h3>{{ name }}</h3>
+			<p>
+				<span id="feedHigh">HIGH:</span>
+				{{ post.high }}
+			</p>
+			<p>
+				<span id="feedLow">LOW:</span>
+				{{ post.low }}
+			</p>
+		</li>
+	</ul>
+</div>
