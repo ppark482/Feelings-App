@@ -5,6 +5,7 @@
 		.factory('FeelFactory', ['$rootScope', 'Restangular', function($rootScope, Restangular) {
 
 			var feelsBase = Restangular.all('feelings6');
+			var entire_group = [];
 
 			function getClassmates() {
 				// return $http.get(url);
