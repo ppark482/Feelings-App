@@ -1,6 +1,7 @@
+<h3 class="profile"></h3>
 <div class="profileGrid">
 	<ul class="profile">
-		<a ng-repeat="person in entireGroup" href="#/featuredDude/{{ person._id }}">
+		<a ng-click="clickPerson(person)" ng-repeat="person in entireGroup">
 		  <li id="{{ person._id }}" class="individual"
 		  data-avatar="{{ person.avatar }}"
 		  data-name="{{ person.name }}"

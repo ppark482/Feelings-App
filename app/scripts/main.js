@@ -13,10 +13,10 @@
 			controller: 'MainController'
 		}); // end route
 
-		// $routeProvider.when('/featuredDude/:id', {
-		// 	templateUrl: '',
-		// 	controller: 'MainController'
-		// });
+		$routeProvider.when('/featuredDude/:id', {
+			templateUrl: 'templates/individual_featured.html',
+			controller: 'FeaturedController'
+		});
 
 	}); // end of config
 
