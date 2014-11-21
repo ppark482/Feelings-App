@@ -2,13 +2,13 @@
 
 	angular.module('TheFeelings')
 
-		.controller('MainController', ['$scope', 'FeelFactory', '$location', '$http', '$rootScope', 'baseURL', function($scope, FeelFactory, $location, $rootScope, baseURL, $http) {
+		.controller('MainController', ['FeelFactory', '$scope', '$location', '$rootScope', function(FeelFactory, $scope, $location, $rootScope) {
 
-				FeelFactory.getClassmates().then( function(results) {
-					$scope.entireGroup = results.data;
-				});
+			FeelFactory.getClassmates().then(function(results){
 
-				$scope.updateFeels = function(feels){};
+				$scope.entireGroup = results;
+				
+			});
 
 		}]); // end controller
 
