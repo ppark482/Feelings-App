@@ -2,34 +2,26 @@
 
 	angular.module('TheFeelings')
 
-		.factory('FeelFactory', ['$rootScope', 'Restangular', function($rootScope, Restangular) {
-
-			var feelsBase = Restangular.all('feelings6');
-			var entire_group = [];
+		.factory('FeelFactory', ['$rootScope', '$http', 'url', function($rootScope, $http, url) {
 
 			function getClassmates() {
-				// return $http.get(url);
-				return feelsBase.getList();
+				return $http.get(url);
 			}
 
 			function getClassmate(id)  {
-				// return $http.get(url + id);
-				return feelsBase.get(id);
+				return $http.get(url + id);
 			}
 
-			function updateFeels(feels) {
-				// $http.put(url + thisUser.id, { high: feels.high, low: feels.low, gif: feels.gif }).success( function () {
-				// 	$rootScope.$broadcast('feels:updated');
-				// });
-				feelsBase.post(feels).then( function() {
-					$rootScope.$broadcast('feel:added');
-				});
-			}
+			// function updateFeels(feels) {
+			// 	$http.put(url + thisUser.id, { high: feels.high, low: feels.low, gif: feels.gif }).success( function () {
+			// 		$rootScope.$broadcast('feels:updated');
+			// 	});
+			// }
 
 			return {
 				getClassmates: getClassmates,
 				getClassmate: getClassmate,
-				updateFeels: updateFeels
+				// updateFeels: updateFeels
 			};
 
 		}]);
