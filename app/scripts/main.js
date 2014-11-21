@@ -13,7 +13,7 @@
 			controller: 'MainController'
 		}); // end route
 
-		$routeProvider.when('/featuredDude/:id', {
+		$routeProvider.when('/single/:id', {
 			templateUrl: 'templates/individual_featured.html',
 			controller: 'FeaturedController'
 		});
