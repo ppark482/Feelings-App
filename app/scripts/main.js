@@ -1,12 +1,10 @@
 (function() {
 
-	var ang = angular.module('TheFeelings', ['ngRoute']); // set the module
+	var ang = angular.module('TheFeelings', ['ngRoute', 'restangular']); // set the module
 
-	ang.constant({
-		'baseURL': 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6/'
-	});
+	ang.config( function ($routeProvider, RestangularProvider) {
 
-	ang.config( function ($routeProvider) {
+		RestangularProvider.setBaseUrl('http://tiy-atl-fe-server.herokuapp.com/collections/feelings6/');
 
 		$routeProvider.when('/', {
 			templateUrl: 'templates/grid_template.html',

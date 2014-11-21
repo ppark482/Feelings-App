@@ -2,7 +2,7 @@
 
 	angular.module('TheFeelings')
 
-		.factory('FeelFactory', ['$rootScope', '$http', function($rootScope, $http) {
+		.factory('FeelFactory', ['$rootScope', '$http', 'Restangular', function($rootScope, $http, Restangular) {
 
 			var url = 'http://tiy-atl-fe-server.herokuapp.com/collections/feelings6/';
 
@@ -14,8 +14,8 @@
 				return $http.get(url + id);
 			}
 
-			function updateClassmate(feel) {
-				$http.put(url + feel.id, { high: feel.high, low: feel.low, gif: feel.gif }).success( function () {
+			function updateFeels(feels) {
+				$http.put(url + thisUser.id, { high: feels.high, low: feels.low, gif: feels.gif }).success( function () {
 					$rootScope.$broadcast('feels:updated');
 				});
 			}
@@ -23,7 +23,7 @@
 			return {
 				getClassmates: getClassmates,
 				getClassmate: getClassmate,
-				updateClassmate: updateClassmate
+				updateFeels: updateFeels
 			}
 
 		}]);
