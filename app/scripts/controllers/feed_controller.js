@@ -2,7 +2,7 @@
 
 	angular.module('TheFeelings')
 
-	.controller('FeedController', ['$scope', 'FeelFactory',  function($scope, FeelFactory){
+	.controller('FeedController', ['$scope', 'FeelFactory', '$location', '$rootScope', '$http', 'url', function($scope, FeelFactory, $location, $rootScope, $http, url){
 
 		// Create empty array to pull server data into
 		var feedArray = [];
